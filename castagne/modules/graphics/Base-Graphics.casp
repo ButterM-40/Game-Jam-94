@@ -1,0 +1,650 @@
+:Character:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+
+## Base-Graphics: Holds some basic behavior for graphics, independant of 2D or 3D. (IN PROGRESS UNTIL v0.55)
+##
+## Its main purpose here is to provide model or sprite initialization, as well as help with standard animations.
+:Specs-UI:
+def UI_Widgets_HPBar int() = 0
+def UI_Widgets_HPBar___UseWidget bool() = 1
+def UI_Widgets_HPBar___Type int() = 1
+def UI_Widgets_HPBar___ScenePath str() = res://
+def UI_Widgets_HPBar___HookPoint str() = HP
+def UI_Widgets_HPBar___Variable1 str() = HP
+def UI_Widgets_HPBar___Variable2 str() = 
+def UI_Widgets_HPBar___Variable3 str() = HPMax
+def UI_Widgets_HPBar___Asset1 str() = 
+def UI_Widgets_HPBar___Asset2 str() = 
+def UI_Widgets_HPBar___Asset3 str() = 
+def UI_Widgets_HPBar___Direction int() = 1
+def UI_Widgets_HPBar___DefaultColor int() = 1
+def UI_Widgets_Meter int() = 0
+def UI_Widgets_Meter___UseWidget bool() = 1
+def UI_Widgets_Meter___Type int() = 1
+def UI_Widgets_Meter___ScenePath str() = res://
+def UI_Widgets_Meter___HookPoint str() = Meter
+def UI_Widgets_Meter___Direction int() = 1
+def UI_Widgets_Meter___Variable1 str() = Meter
+def UI_Widgets_Meter___Variable2 str() = 
+def UI_Widgets_Meter___Variable3 str() = MeterMax
+def UI_Widgets_Meter___Asset1 str() = 
+def UI_Widgets_Meter___Asset2 str() = 
+def UI_Widgets_Meter___Asset3 str() = 
+def UI_Widgets_Meter___DefaultColor int() = 3
+:Specs-Sprites:
+# Automatic creation
+:Variables-Internals-Graphics:
+## Variables used by the graphics module
+
+internal _ModelPath
+internal _SpritePalettePath
+internal _PaletteID
+internal _Tmp_DefaultModelPath
+internal _Tmp_DefaultSpritePalettePath
+
+def GRAPHICS_ZORDER_DEFENDER int() = 0
+def GRAPHICS_ZORDER_ATTACKER int() = 1
+:AnimAirTechBackward:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Airborne_Backward)
+endif
+:AnimAirTechDown:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Airborne_Down)
+endif
+:AnimAirTechForward:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Airborne_Forward)
+endif
+:AnimAirTechNeutral:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Airborne_Neutral)
+endif
+:AnimAirTechUp:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Airborne_Up)
+endif
+:AnimAirThrowHeld:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Throw_Air_Held)
+endif
+:AnimAirThrowHolding:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Throw_Air_Holding)
+endif
+:AnimAirThrowTeched:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Throw_Air_Teched)
+endif
+:AnimAirThrowTeching:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Throw_Air_Teching)
+endif
+:AnimAirborne:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_AirIdle)
+endif
+:AnimAirdashB:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_AirdashB)
+endif
+:AnimAirdashF:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_AirdashF)
+endif
+:AnimAirjumpB:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_AirjumpB)
+endif
+:AnimAirjumpF:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_AirjumpF)
+endif
+:AnimAirjumpN:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_AirjumpN)
+endif
+:AnimBackdash:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_Backdash)
+endif
+:AnimBlockstunAirborne:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Blockstun_Airborne)
+	
+	PFreeze:
+		AnimFrame(ANIM_Reacts_Blockstun_Airborne, 0)
+	endif
+endif
+:AnimBlockstunCrouching:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Blockstun_Crouching)
+	
+	PFreeze:
+		AnimFrame(ANIM_Reacts_Blockstun_Crouching, 0)
+	endif
+endif
+:AnimBlockstunStanding:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Blockstun_Standing)
+	
+	PFreeze:
+		AnimFrame(ANIM_Reacts_Blockstun_Standing, 0)
+	endif
+endif
+:AnimCrawlB:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_CrawlB)
+	AnimLoop(ANIM_Movement_Basic_CrawlB_Loop)
+endif
+:AnimCrawlF:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_CrawlF)
+	AnimLoop(ANIM_Movement_Basic_CrawlF_Loop)
+endif
+:AnimCrouchToStand:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_CrouchToStand)
+endif
+:AnimCrouching:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_Crouching)
+	AnimLoop(ANIM_Movement_Basic_Crouching_Loop)
+endif
+:AnimDead:
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Emote_Dead)
+endif
+:AnimGroundTechBackward:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Grounded_Backward)
+endif
+:AnimGroundTechForward:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Grounded_Forward)
+endif
+:AnimGroundTechNeutral:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Grounded_Neutral)
+endif
+:AnimGroundTechUp:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Grounded_Up)
+endif
+:AnimGroundThrowHeld:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Throw_Ground_Held)
+endif
+:AnimGroundThrowHolding:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Throw_Ground_Holding)
+endif
+:AnimGroundThrowTeched:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Throw_Ground_Teched)
+endif
+:AnimGroundThrowTeching:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Throw_Ground_Teching)
+endif
+:AnimHighjumpB:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_HighjumpB)
+endif
+:AnimHighjumpF:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_HighjumpF)
+endif
+:AnimHighjumpN:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_HighjumpN)
+endif
+:AnimHitstunAirborne:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Hitstun_Airborne)
+	
+	PFreeze:
+		AnimFrame(ANIM_Reacts_Hitstun_Airborne, 0)
+	endif
+endif
+
+EEnter:
+	VANIMS_UseStandardAnims:
+		Anim(ANIM_Reacts_Hitstun_Airborne)
+		
+		PFreeze:
+			AnimFrame(ANIM_Reacts_Hitstun_Airborne, 0)
+		endif
+	endif
+endif
+:AnimHitstunCrouching:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Hitstun_Crouching)
+	
+	PFreeze:
+		AnimFrame(ANIM_Reacts_Hitstun_Crouching, 0)
+	endif
+endif
+
+EEnter:
+	VANIMS_UseStandardAnims:
+		Anim(ANIM_Reacts_Hitstun_Crouching)
+		
+		PFreeze:
+			AnimFrame(ANIM_Reacts_Hitstun_Crouching, 0)
+		endif
+	endif
+endif
+:AnimHitstunStanding:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Hitstun_Standing)
+	
+	PFreeze:
+		AnimFrame(ANIM_Reacts_Hitstun_Standing, 0)
+	endif
+endif
+
+EEnter:
+	VANIMS_UseStandardAnims:
+		Anim(ANIM_Reacts_Hitstun_Standing)
+		
+		PFreeze:
+			AnimFrame(ANIM_Reacts_Hitstun_Standing, 0)
+		endif
+	endif
+endif
+:AnimIntro:
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Emote_Intro)
+endif
+:AnimJumpB:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_JumpB)
+endif
+:AnimJumpF:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_JumpF)
+endif
+:AnimJumpN:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_JumpN)
+endif
+:AnimJumpsquat:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_Jumpsquat)
+endif
+:AnimKnockdown:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Knockdown)
+endif
+:AnimKnockdownTechBackward:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Knockdown_Backward)
+endif
+:AnimKnockdownTechForward:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Knockdown_Forward)
+endif
+:AnimKnockdownTechNeutral:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Knockdown_Neutral)
+endif
+:AnimKnockdownTechUp:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Reacts_Tech_Knockdown_Up)
+endif
+:AnimLanding:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_Landing)
+endif
+:AnimLose:
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Emote_Timeout)
+endif
+:AnimRun:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_Run)
+	AnimLoop(ANIM_Movement_Dashes_Run_Loop)
+endif
+:AnimRunStart:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_RunStart)
+endif
+:AnimRunStop:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_RunStop)
+endif
+:AnimStand:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_Stand)
+	AnimLoop(ANIM_Movement_Basic_Stand_Loop)
+endif
+:AnimStandToCrouch:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_StandToCrouch)
+endif
+:AnimStepDash:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Dashes_StepDash)
+endif
+:AnimTurnaround:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_Turnaround)
+endif
+:AnimTurnaroundAirborne:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_TurnaroundAirborne)
+endif
+:AnimTurnaroundCrouch:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_TurnaroundCrouch)
+endif
+:AnimWalkB:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_WalkB)
+	AnimLoop(ANIM_Movement_Basic_WalkB_Loop)
+endif
+:AnimWalkF:
+_Overridable(If you wish to use a custom animation instead of the standard system.)
+
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Movement_Basic_WalkF)
+	AnimLoop(ANIM_Movement_Basic_WalkF_Loop)
+endif
+:AnimWin:
+VANIMS_UseStandardAnims:
+	Anim(ANIM_Emote_Win)
+endif
+:AttackReactEvents-Attacker:
+CallParent()
+Call(AttackReactEvents-Attacker-Graphics)
+:AttackReactEvents-Attacker-Graphics:
+## Handles graphics logic when an attacker touches
+_Category(Internals/Attacks/React)
+_Helper()
+
+EOnAttackHit,OnAttackBlocked:
+	VGRAPHICS_AutomaticZOrder:
+		ModelZOrder(GRAPHICS_ZORDER_ATTACKER)
+	endif
+	
+	VGRAPHICS_PauseAttackerVFXOnHitstop:
+		Flag(VFXPause)
+	endif
+endif
+:AttackReactEvents-Defender:
+CallParent()
+Call(AttackReactEvents-Defender-Graphics)
+:AttackReactEvents-Defender-Graphics:
+## Handles graphics on touch
+_Category(Internals/Attacks/React)
+_Helper()
+
+EOnGetHit,OnBlocking:
+	VGRAPHICS_AutomaticZOrder:
+		ModelZOrder(GRAPHICS_ZORDER_DEFENDER)
+	endif
+	
+	VGRAPHICS_PauseAttackerVFXOnHitstop:
+		Flag(VFXPause)
+	endif
+endif
+
+EOnGetHit:
+	Call(AnimHitstun)
+	## TODO: Update anim system since it won't need frame zero anymore with the transition. Plus new freeze system
+
+	## TODO: VFX
+	Call(VFXHit)
+
+	## CASTDO: Configurable ?
+	CameraShake()
+endif
+
+EOnBlocking:
+	Call(VFXBlock)
+endif
+:Common:
+CallParent()
+Call(Common-Graphics)
+:Common-Graphics:
+PFreeze:
+#	Unflag(VFXPause)
+endif
+:Init:
+CallParent()
+Call(Init-Graphics)
+:Init-Graphics:
+## Helper that creates the model or sprites on entity instanciation.
+_Category(Graphics)
+
+Call(Init-Graphics-Palette)
+
+VGRAPHICS_UseSprites:
+	Call(Init-Graphics-Sprites)
+else
+	VGRAPHICS_UseModel:
+		Call(Init-Graphics-Model)
+	endif
+endif
+
+ModelScale(GRAPHICS_Scale)
+:Init-Graphics-Model:
+## Graphics helper to initialize a model
+_Category(Graphics)
+
+ModelCreate(_ModelPath, GRAPHICS_ModelPath_AnimPlayer)
+:Init-Graphics-Palette:
+## Helper that sets the palette variables before creation
+_Category(Graphics)
+
+## CASTDO Temp until v0.7
+SetStr(_Tmp_DefaultModelPath, GRAPHICS_ModelPath)
+SetStr(_Tmp_DefaultSpritePalettePath, GRAPHICS_SpritePalette)
+
+SetStr(_ModelPath, GRAPHICS_ModelPath)
+SetStr(_SpritePalettePath, GRAPHICS_SpritePalette)
+PaletteApply()
+:Init-Graphics-Sprites:
+## Helper for sprite initialization
+_Category(Graphics)
+
+SpriteCreate()
+Call(Init-Graphics-Spritesheets)
+:Init-Graphics-Spritesheets:
+## Helper that initializes the spritesheets of the character
+_Category(Graphics)
+_Overridable(If you want to setup your spritesheets manually)
+:Init-LightGraphicsInit:
+## Simple helper to create a model or sprite quickly for subentities
+_Helper()
+_Category(Graphics)
+
+#--- Model
+def Model_Path str() = res://castagne/assets/fighters/Sphere.tscn
+def Model_AnimPath str() = AnimationPlayer
+def Model_UseAnims bool() = 0
+def Model_Scale int() = 1000
+
+#--- Sprites
+def Sprites_Use bool() = 0
+def Sprites_SpritesheetPath str() = res://castagne/assets/fighters/Circle.png
+def Sprites_NbX int() = 1
+def Sprites_NbY int() = 1
+def Sprites_OriginX int() = 0
+def Sprites_OriginY int() = 0
+def Sprites_3DPixelsize int() = 1000
+
+## CASTDO Sprite seems to have problems here ?
+
+# -----------------------------------
+VSprites_Use:
+	SpriteCreate()
+	SpritesheetRegister(Default, Sprites_SpritesheetPath, Sprites_NbX, Sprites_NbY, Sprites_OriginX, Sprites_OriginY, Sprites_3DPixelsize)
+	Sprite(0)
+else
+	VModel_UseAnims:
+		ModelCreate(Model_Path, Model_AnimPath)
+	else
+		ModelCreate(Model_Path)
+	endif
+endif
+
+ModelScale(Model_Scale)
+:VFXBlock:
+## Temporary block vfx function
+## CASTDO
+
+def VFXBlockPath str() = res://castagne/assets/fx/TempBlockVFX.tscn
+def VFXBlockPosX int() = 3000
+def VFXBlockPosY int() = 10000
+def VFXBlockScale int() = 1000
+def VFXBlockTime int() = 10
+def VFXBlockAnimation str() = default
+def VFXBlockAnimPlayer str() = AnimationPlayer
+
+EOnBlocking:
+	VFXModel(VFXBlockPath)
+	VFXTime(VFXBlockTime)
+	VFXPosition(VFXBlockPosX, VFXBlockPosY)
+	VFXScale(VFXBlockScale)
+	VFXAnimation(VFXBlockAnimation, VFXBlockAnimPlayer)
+	VFXCreate()
+endif
+:VFXHit:
+## Temporary hit vfx function
+## CASTDO
+
+def VFXHitPath str() = res://castagne/assets/fx/TempHitVFX.tscn
+def VFXHitPosX int() = 1000
+def VFXHitPosY int() = 10000
+def VFXHitScale int() = 400
+def VFXHitTime int() = 10
+def VFXHitAnimation str() = default
+def VFXHitAnimPlayer str() = AnimationPlayer
+
+EOnGetHit:
+	VFXModel(VFXHitPath)
+	VFXTime(VFXHitTime)
+	VFXPosition(VFXHitPosX, VFXHitPosY)
+	VFXScale(VFXHitScale)
+	VFXAnimation(VFXHitAnimation, VFXHitAnimPlayer)
+	VFXCreate()
+endif

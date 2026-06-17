@@ -1,0 +1,30 @@
+:Character:
+## This is a skeleton, which is added to all characters automatically. You can use it to define the common parts of your character, for example:
+## - System mechanics
+## - Movement
+## - Attack types
+## etc.
+:Variables:
+## These variables are common to all characters since it's in the skeleton.
+:AI-Multiplexer-Neutral:
+PAI:
+	AITransition(AI-Walk)
+endif
+:AI-Walk:
+PAI:
+F1%60:
+	R50:
+		Flag(AIWalkRight)
+	R50
+		Unflag(AIWalkRight)
+	endif
+endif
+
+LAIWalkRight:
+	InputPress(Right)
+	FlagNext(AIWalkRight)
+else
+	InputPress(Left)
+endif
+
+endif

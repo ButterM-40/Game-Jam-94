@@ -1,0 +1,14 @@
+# Godot build artifacts
+*.exe
+*.pck
+*.zip
+Test Export Windows/
+Test Export Windows.zip
+Test Export.zip
+
+# Godot import cache (can be regenerated)
+.import/
+
+# OS
+.DS_Store
+Thumbs.db

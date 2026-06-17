@@ -1,0 +1,69 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+extends "../CastagneMenuCore.gd"
+
+onready var _deviceSelect = $CanvasLayer/DeviceSelect
+
+func _ready():
+	
+	_configData = Castagne.baseConfigData
+	var menuData = Castagne.baseConfigData.Get("MenuData-MainMenu").duplicate(true)
+	menuData["DefaultElements"] = {
+		Castagne.MENUS_ELEMENT_TYPES.ACTION: Castagne.Loader.Load("res://castagne/helpers/menus/elements/default/CMED-Action.tscn"),
+		Castagne.MENUS_ELEMENT_TYPES.LIST: Castagne.Loader.Load("res://castagne/helpers/menus/elements/default/CMED-List.tscn"),
+	}
+	InitMenu(menuData, null)
+	pass
+
+func Setup(menuData, menuParams):
+	for option in menuData["Options"]:
+		if option["ScenePath"] == null:
+			option["ScenePath"] = "res://castagne/helpers/menus/MainMenu/MenuButton.tscn"
+	.Setup(menuData, menuParams)
+
+func MCB_MMTraining(_args):
+	StartDeviceSelect(funcref(self, "TrainingStart"))
+func MCB_MMLocalBattle(_args):
+	StartDeviceSelect(funcref(self, "LocalBattleStart"))
+func MCB_MMVsCPU(_args):
+	StartDeviceSelect(funcref(self, "VsCPUStart"))
+func MCB_MMOptions(_args):
+	queue_free()
+	get_tree().get_root().add_child(Castagne.Menus.InstanceMenu("Options", null, _configData))
+
+
+func _MatchCSSParamsCommon(devices, mode):
+	return {
+		"Devices": devices,
+		"CallbackBack": FindMenuCallback("BackToMainMenu"),
+		"CallbackBackParams": [null, _configData],
+		"CallbackAdvance": FindMenuCallback("StartMatchFromCSS"),
+		"CallbackAdvanceParams": {
+			"Mode": mode,
+		}
+	}
+
+func TrainingStart(devices):
+	queue_free()
+	var menuParams = _MatchCSSParamsCommon(devices, Castagne.GAMEMODES.MODE_TRAINING)
+	get_tree().get_root().add_child(Castagne.Menus.InstanceMenu("CSS", menuParams, _configData))
+
+func LocalBattleStart(devices):
+	queue_free()
+	var menuParams = _MatchCSSParamsCommon(devices, Castagne.GAMEMODES.MODE_BATTLE)
+	get_tree().get_root().add_child(Castagne.Menus.InstanceMenu("CSS", menuParams, _configData))
+
+func VsCPUStart(devices):
+	queue_free()
+	var menuParams = _MatchCSSParamsCommon([devices[0], null], Castagne.GAMEMODES.MODE_BATTLE)
+	menuParams["CallbackAdvance"] = Castagne.Menus.FindMenuCallback("StartVsCPUFromCSS")
+	get_tree().get_root().add_child(Castagne.Menus.InstanceMenu("CSS", menuParams, _configData))
+
+func StartDeviceSelect(advanceCallback):
+	_active = false
+	_deviceSelect.Start(self, advanceCallback, funcref(self, "StopDeviceSelect"))
+
+func StopDeviceSelect():
+	_active = true

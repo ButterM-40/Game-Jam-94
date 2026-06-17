@@ -1,0 +1,46 @@
+{
+	"ConfigSkeleton": "res://castagne/helpers/genreskeletons/CC25DFighter.json",
+	"Editor-FirstTimeFlowDone": true,
+	"MenuData-MainMenu": {
+		"Options": [
+			{
+				"Action": "MMLocalBattle",
+				"ActionParams": null,
+				"DisplayName": "Local Versus",
+				"ScenePath": null,
+				"Type": 0
+			},
+			{
+				"Action": "MMVsCPU",
+				"ActionParams": null,
+				"DisplayName": "VS CPU",
+				"ScenePath": null,
+				"Type": 0
+			},
+			{
+				"Action": "MMTraining",
+				"ActionParams": null,
+				"DisplayName": "Training",
+				"ScenePath": null,
+				"Type": 0
+			},
+			{
+				"Action": "MMOptions",
+				"ActionParams": null,
+				"DisplayName": "Options",
+				"ScenePath": null,
+				"Type": 0
+			},
+			{
+				"Action": "MCB_QuitGame",
+				"ActionParams": null,
+				"DisplayName": "Quit",
+				"ScenePath": null,
+				"Type": 0
+			}
+		]
+	},
+	"MenuScene-MainMenu": "res://castagne/helpers/menus/MainMenu/MainMenu.tscn",
+	"Modules-core": "res://castagne/modules/core/CMCore.gd",
+	"Skeletons": "res://fighters/Skeleton.casp"
+}
