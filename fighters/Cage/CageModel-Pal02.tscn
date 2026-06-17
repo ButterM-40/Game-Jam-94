@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fighters/Cage/Cage.glb" type="PackedScene" id=1]
-[ext_resource path="res://fighters/Cage/Cage1.jpg" type="Texture" id=3]
+[ext_resource path="res://fighters/Cage/Cage2.jpg" type="Texture" id=2]
 
 [sub_resource type="ORMSpatialMaterial" id=1]
-albedo_texture = ExtResource( 3 )
+albedo_texture = ExtResource( 2 )
 
 [sub_resource type="ORMSpatialMaterial" id=2]
-albedo_texture = ExtResource( 3 )
+albedo_texture = ExtResource( 2 )
 
 [sub_resource type="ORMSpatialMaterial" id=3]
-albedo_texture = ExtResource( 3 )
+albedo_texture = ExtResource( 2 )
 
 [node name="Model" instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
