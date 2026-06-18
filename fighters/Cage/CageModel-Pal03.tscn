@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fighters/Cage/Cage.glb" type="PackedScene" id=1]
+[ext_resource path="res://fighters/Cage/Cage3.jpg" type="Texture" id=2]
+
+[sub_resource type="ORMSpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="ORMSpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="ORMSpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+
+[node name="Model" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="face" parent="LionArmature/Skeleton" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="hair" parent="LionArmature/Skeleton" index="1"]
+material/0 = SubResource( 2 )
+
+[node name="lion" parent="LionArmature/Skeleton" index="2"]
+material/0 = SubResource( 3 )
