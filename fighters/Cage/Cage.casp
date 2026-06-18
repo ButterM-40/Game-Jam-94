@@ -3,6 +3,15 @@ Name: Cage
 EditorName: Cage
 :Specs-UI:
 # Automatic creation
+:Specs-PhysicsTeching:
+# Automatic creation
+:Specs-PhysicsSystem:
+def PHYSICS_StandardHurtbox_Bottom int() = 0
+def PHYSICS_StandardHurtbox_Crouching_Width int() = 6000
+def PHYSICS_StandardHurtbox_Top int() = 25000
+def PHYSICS_StandardHurtbox_Width int() = 6000
+:Specs-PhysicsMovement:
+# Automatic creation
 :Specs-MenuData:
 def MENU_Hidden bool() = 0
 def MENU_Name str() = Cage
@@ -34,6 +43,8 @@ def GRAPHICS_SPRITE_PALETTE_4___SpritePalettePath str() = res://fighters/Cage/Ca
 :Specs-AttacksTypes:
 # Automatic creation
 :Specs-AttacksThrows:
+# Automatic creation
+:Specs-AttacksMechanics:
 # Automatic creation
 :Specs-Anims:
 def ANIM_Movement_Basic_Stand str() = standing

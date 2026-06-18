@@ -6,6 +6,7 @@
 		100,
 		200
 	],
+	"GameTitle": "Mutant Arena",
 	"MenuData-MainMenu": {
 		"Options": [
 			{
@@ -47,5 +48,6 @@
 	},
 	"MenuScene-MainMenu": "res://castagne/helpers/menus/MainMenu/MainMenu.tscn",
 	"Modules-core": "res://castagne/modules/core/CMCore.gd",
-	"Skeletons": "res://fighters/Skeleton.casp"
+	"Skeletons": "res://fighters/Skeleton.casp",
+	"StagePaths": "res://castagne/assets/map/stage1.tscn"
 }

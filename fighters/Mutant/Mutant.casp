@@ -3,6 +3,16 @@ Name: Mutant
 EditorName: Mutant
 :Specs-UI:
 # Automatic creation
+:Specs-PhysicsTeching:
+# Automatic creation
+:Specs-PhysicsSystem:
+def PHYSICS_StandardHurtbox_Crouching_Top int() = 24000
+def PHYSICS_StandardHurtbox_Top int() = 50000
+:Specs-PhysicsMovement:
+def MOVE_Dashes_CanAirjump bool() = 1
+def MOVE_Dashes_CanHighjump bool() = 0
+def MOVE_Dashes_CanRun bool() = 0
+def MOVE_Dashes_CanStepDash bool() = 0
 :Specs-MenuData:
 def MENU_Hidden bool() = 0
 def MENU_Name str() = Mutant
@@ -33,11 +43,11 @@ def GRAPHICS_SPRITE_PALETTE_4___SpritePalettePath str() = res://fighters/Mutant/
 
 :Specs-Anims:
 def ANIM_Movement_Basic_Stand str() = Stand
-def ANIM_Movement_Basic_Stand_Loop int() = 30
-def ANIM_Movement_Basic_WalkF str() = Stand
-def ANIM_Movement_Basic_WalkF_Loop int() = 91
-def ANIM_Movement_Basic_WalkB str() = Stand
-def ANIM_Movement_Basic_WalkB_Loop int() = 91
+def ANIM_Movement_Basic_Stand_Loop int() = 223
+def ANIM_Movement_Basic_WalkF str() = WalkF
+def ANIM_Movement_Basic_WalkF_Loop int() = 178
+def ANIM_Movement_Basic_WalkB str() = Walkb
+def ANIM_Movement_Basic_WalkB_Loop int() = 178
 def ANIM_Movement_Basic_Crouching str() = Crouch
 def ANIM_Movement_Basic_Crouching_Loop int() = 30
 def ANIM_Movement_Basic_CrouchToStand str() = Stand
@@ -101,7 +111,7 @@ AttackRegister(Medium)
 Anim(2B)
 AttackDamage(700)
 AttackDuration(20)
-AttackMomentum(1200, 2500, 800, 800)
+AttackMomentum(1200, 2400, 800, 800)
 AttackFrameAdvantage(0, -5)
 F7-10:
 	Hitbox(0, 34000, 0, 8000)
@@ -145,7 +155,7 @@ AttackDuration(18)
 AttackMomentum(1200, 0, 900, 1000)
 AttackFrameAdvantage(0, -4)
 F7-10:
-	Hitbox(0, 24000, 1000, 20000)
+	Hitbox(0, 20000, 1000, 20000)
 endif
 :5S:
 AttackRegister(Special)
