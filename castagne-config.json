@@ -1,9 +1,10 @@
 {
-	"CharacterPaths": "res://fighters/Cage/Cage.casp",
+	"CharacterPaths": "res://fighters/Cage/Cage.casp, res://fighters/Mutant/Mutant.casp",
 	"ConfigSkeleton": "res://castagne/helpers/genreskeletons/CC25DFighter.json",
 	"Editor-FirstTimeFlowDone": true,
 	"EditorCharacterOrder": [
-		100
+		100,
+		200
 	],
 	"MenuData-MainMenu": {
 		"Options": [

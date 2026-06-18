@@ -61,6 +61,19 @@ def ANIM_Reacts_Blockstun_Airborne str() = stBlock
 def ANIM_Reacts_Knockdown str() = Down
 def ANIM_Reacts_Dead str() = Down
 def ANIM_Emote_Dead str() = Down
+def ANIM_Reacts_Tech_Airborne_Neutral str() = Jump
+def ANIM_Reacts_Tech_Airborne_Backward str() = Jump
+def ANIM_Reacts_Tech_Airborne_Forward str() = Jump
+def ANIM_Reacts_Tech_Airborne_Up str() = Jump
+def ANIM_Reacts_Tech_Airborne_Down str() = Jump
+def ANIM_Reacts_Tech_Grounded_Neutral str() = standing
+def ANIM_Reacts_Tech_Grounded_Backward str() = standing
+def ANIM_Reacts_Tech_Grounded_Forward str() = standing
+def ANIM_Reacts_Tech_Grounded_Up str() = standing
+def ANIM_Reacts_Tech_Knockdown_Neutral str() = standing
+def ANIM_Reacts_Tech_Knockdown_Backward str() = standing
+def ANIM_Reacts_Tech_Knockdown_Forward str() = standing
+def ANIM_Reacts_Tech_Knockdown_Up str() = standing
 :Variables:
 # --- STANDING ATTACKS ---
 :2H:

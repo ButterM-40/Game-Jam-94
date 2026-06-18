@@ -1,0 +1,6 @@
+:Character:
+## This is the Character block, where you add some basic information about your character that can be accessed from outside, like their name or place on the select screen.
+## You can also add another file to this with the Skeleton: property.
+Skeleton: res://castagne/examples/fighters/baston/Baston-Model.casp
+:Variables:
+## This is the Variables block, where you can store custom variables or overwrite defined ones.You can see all available default variables by activating 'Show All Variables' in the navigation panel.
