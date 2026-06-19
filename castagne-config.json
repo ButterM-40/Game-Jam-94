@@ -1,4 +1,8 @@
 {
+	"CameraOffsetY": 26000,
+	"CameraOffsetYClose": 26000,
+	"CameraOffsetZ": 55000,
+	"CameraOffsetZClose": 55000,
 	"CharacterPaths": "res://fighters/Cage/Cage.casp, res://fighters/Mutant/Mutant.casp, res://fighters/Thala/thala.casp",
 	"ConfigSkeleton": "res://castagne/helpers/genreskeletons/CC25DFighter.json",
 	"Editor-FirstTimeFlowDone": true,

@@ -23,7 +23,7 @@ glow_high_quality = true
 adjustment_contrast = 1.3
 
 [node name="stage1" instance=ExtResource( 1 )]
-transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -1.21487 )
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -2.52487 )
 
 [node name="Walls" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.23242 )
