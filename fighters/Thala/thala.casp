@@ -1,0 +1,230 @@
+:Character:
+Name: Thala
+EditorName: Thala
+:Specs-UI:
+# Automatic creation
+:Specs-PhysicsTeching:
+# Automatic creation
+:Specs-PhysicsSystem:
+def PHYSICS_StandardHurtbox_Bottom int() = 0
+def PHYSICS_StandardHurtbox_Crouching_Width int() = 6000
+def PHYSICS_StandardHurtbox_Top int() = 25000
+def PHYSICS_StandardHurtbox_Width int() = 6000
+:Specs-PhysicsMovement:
+def MOVE_Dashes_CanBackdash bool() = 0
+def MOVE_Dashes_CanDashFromCrouch bool() = 0
+def MOVE_Dashes_CanStepDash bool() = 0
+def MOVE_Friction_Ground int() = 99
+def MOVE_Jump_JumpB_InitialMomentumY int() = 3500
+def MOVE_Jump_JumpF_InitialMomentumY int() = 3500
+def MOVE_Jump_JumpN_InitialMomentumY int() = 3500
+def MOVE_Walk_SpeedB int() = -400
+def MOVE_Walk_SpeedF int() = 800
+:Specs-MenuData:
+def MENU_Hidden bool() = 0
+def MENU_Name str() = Thala
+:Specs-Graphics:
+def GRAPHICS_ModelPath str() = res://fighters/Thala/ThalaModel.tscn
+def GRAPHICS_ModelPath_AnimPlayer str() = AnimationPlayer
+def GRAPHICS_SPRITE_PALETTE_0 int() = 0
+def GRAPHICS_SPRITE_PALETTE_0___Extra int() = 0
+def GRAPHICS_SPRITE_PALETTE_0___ModelPath str() = res://fighters/Thala/ThalaModel.tscn
+def GRAPHICS_SPRITE_PALETTE_0___SpritePalettePath str() = res://fighters/Thala/Thala1.jpg
+def GRAPHICS_SPRITE_PALETTE_1 int() = 0
+def GRAPHICS_SPRITE_PALETTE_1___Extra int() = 0
+def GRAPHICS_SPRITE_PALETTE_1___ModelPath str() = res://fighters/Thala/ThalaModel-Pal02.tscn
+def GRAPHICS_SPRITE_PALETTE_1___SpritePalettePath str() = res://fighters/Thala/Thala2.jpg
+def GRAPHICS_SPRITE_PALETTE_2 int() = 0
+def GRAPHICS_SPRITE_PALETTE_2___Extra int() = 0
+def GRAPHICS_SPRITE_PALETTE_2___ModelPath str() = res://fighters/Thala/ThalaModel-Pal03.tscn
+def GRAPHICS_SPRITE_PALETTE_2___SpritePalettePath str() = res://fighters/Thala/Thala3.jpg
+def GRAPHICS_SPRITE_PALETTE_3 int() = 0
+def GRAPHICS_SPRITE_PALETTE_3___Extra int() = 0
+def GRAPHICS_SPRITE_PALETTE_3___ModelPath str() = res://fighters/Thala/ThalaModel-Pal04.tscn
+def GRAPHICS_SPRITE_PALETTE_3___SpritePalettePath str() = res://fighters/Thala/Thala4.jpg
+def GRAPHICS_SPRITE_PALETTE_4 int() = 0
+def GRAPHICS_SPRITE_PALETTE_4___Extra int() = 0
+def GRAPHICS_SPRITE_PALETTE_4___ModelPath str() = res://fighters/Thala/ThalaModel-Pal05.tscn
+def GRAPHICS_SPRITE_PALETTE_4___SpritePalettePath str() = res://fighters/Thala/Thala5.jpg
+:Specs-FlowBattle:
+# Automatic creation
+:Specs-AttacksTypes:
+# Automatic creation
+:Specs-AttacksThrows:
+# Automatic creation
+:Specs-AttacksMechanics:
+# Automatic creation
+:Specs-Anims:
+def ANIM_Emote_Dead str() = Down
+def ANIM_Movement_Basic_AirIdle str() = Jump
+def ANIM_Movement_Basic_CrouchToStand str() = Stand
+def ANIM_Movement_Basic_Crouching str() = Crouch
+def ANIM_Movement_Basic_Crouching_Loop int() = 30
+def ANIM_Movement_Basic_JumpB str() = Jump
+def ANIM_Movement_Basic_JumpF str() = Jump
+def ANIM_Movement_Basic_JumpN str() = Jump
+def ANIM_Movement_Basic_Jumpsquat str() = Jump
+def ANIM_Movement_Basic_Landing str() = Stand
+def ANIM_Movement_Basic_Stand str() = Stand
+def ANIM_Movement_Basic_StandToCrouch str() = Crouch
+def ANIM_Movement_Basic_Stand_Loop int() = 30
+def ANIM_Movement_Basic_WalkB str() = WalkB
+def ANIM_Movement_Basic_WalkB_Loop int() = 249
+def ANIM_Movement_Basic_WalkF str() = WalkF
+def ANIM_Movement_Basic_WalkF_Loop int() = 118
+def ANIM_Reacts_Blockstun_Airborne str() = stBlock
+def ANIM_Reacts_Blockstun_Crouching str() = crBlock
+def ANIM_Reacts_Blockstun_Standing str() = stBlock
+def ANIM_Reacts_Dead str() = Down
+def ANIM_Reacts_Hitstun_Airborne str() = stHit
+def ANIM_Reacts_Hitstun_Crouching str() = crHit
+def ANIM_Reacts_Hitstun_Standing str() = stHit
+def ANIM_Reacts_Knockdown str() = Down
+def ANIM_Reacts_Tech_Airborne_Backward str() = Jump
+def ANIM_Reacts_Tech_Airborne_Down str() = Jump
+def ANIM_Reacts_Tech_Airborne_Forward str() = Jump
+def ANIM_Reacts_Tech_Airborne_Neutral str() = Jump
+def ANIM_Reacts_Tech_Airborne_Up str() = Jump
+def ANIM_Reacts_Tech_Grounded_Backward str() = Stand
+def ANIM_Reacts_Tech_Grounded_Forward str() = Stand
+def ANIM_Reacts_Tech_Grounded_Neutral str() = Stand
+def ANIM_Reacts_Tech_Grounded_Up str() = Stand
+def ANIM_Reacts_Tech_Knockdown_Backward str() = Stand
+def ANIM_Reacts_Tech_Knockdown_Forward str() = Stand
+def ANIM_Reacts_Tech_Knockdown_Neutral str() = Stand
+def ANIM_Reacts_Tech_Knockdown_Up str() = Stand
+:Variables:
+# --- STANDING ATTACKS ---
+:2H:
+Flag(Crouching)
+AttackRegister(Heavy)
+Anim(2C)
+AttackDamage(800)
+AttackDuration(30)
+AttackMomentum(1400, 1200, 1000, 1800)
+AttackFrameAdvantage(0, -10)
+AttackMustBlock(Low)
+F9-13:
+	Hitbox(0, 24000, 0, 5000)
+endif
+
+# --- AIR ATTACKS ---
+:2L:
+Flag(Crouching)
+AttackRegister(Light)
+Anim(2A)
+AttackDamage(350)
+AttackDuration(12)
+AttackMomentum(800, 0, 600, 600)
+F5-7:
+	Hitbox(8000, 16500, 0, 6000)
+endif
+:2M:
+Flag(Crouching)
+AttackRegister(Medium)
+Anim(2B)
+AttackDamage(700)
+AttackDuration(18)
+AttackMomentum(1000, 0, 800, 800)
+AttackFrameAdvantage(0, -5)
+F7-10:
+	Hitbox(0, 25000, 0, 5000)
+endif
+:4S:
+AttackRegister(Special)
+Anim(5Special3)
+AttackDamage(1100)
+AttackDuration(44)
+AttackMomentum(600, 1800, 600, 2000)
+AttackKnockdown(30)
+F1:
+	AddMomentum(0,4000)
+	endif
+F12-16:
+	Hitbox(0, 13000, 0, 22000)
+endif
+:5H:
+AttackRegister(Heavy)
+Anim(5C)
+AttackDamage(800)
+AttackDuration(25)
+AttackMomentum(1600, 0, 500, 1400)
+AttackFrameAdvantage(0, -8)
+F9-13:
+	Hitbox(0, 16200, 17000, 24000)
+endif
+
+# --- CROUCHING ATTACKS ---
+:5L:
+AttackRegister(Light)
+Anim(5A)
+AttackDamage(400)
+AttackDuration(15)
+AttackMomentum(1000, 0, 800, 800)
+F5-7:
+	Hitbox(0, 14500, 18000, 22000)
+endif
+:5M:
+AttackRegister(Medium)
+Anim(5B)
+AttackDamage(800)
+AttackDuration(15)
+AttackMomentum(1200, 0, 900, 1000)
+AttackFrameAdvantage(0, -4)
+F7-10:
+	Hitbox(1000, 20000, 19000, 24000)
+endif
+:5S:
+AttackRegister(Special)
+Anim(5Special1)
+AttackDamage(900)
+AttackDuration(36)
+AttackMomentum(1800, 0, 1400, 1200)
+F10-14:
+	Hitbox(0, 15000, 4000, 18000)
+endif
+:6S:
+AttackRegister(Special)
+Anim(5Special2)
+AttackDamage(1000)
+AttackDuration(23)
+AttackMomentum(2000, 800, 1600, 1400)
+F11-15:
+	Hitbox(0, 14000, 6000, 20000)
+endif
+:j5H:
+AttackRegister(AirHeavy)
+Anim(jC)
+AttackDamage(1000)
+AttackDuration(34)
+AttackMomentum(1400, 0, 1200, 1200)
+AttackMustBlock(Overhead)
+AttackKnockdown()
+F7-11:
+	Hitbox(10000, 18000, 3000, 9000)
+endif
+F12-13:
+	Hitbox(-2000, 12000, 7000, 15000)
+endif
+
+# --- SPECIALS ---
+:j5L:
+AttackRegister(AirLight)
+Anim(jA)
+AttackDamage(400)
+AttackDuration(24)
+AttackMomentum(900, 0, 900, 600)
+AttackMustBlock(Overhead)
+F5-8:
+	Hitbox(-1000, 7000, 6000, 10000)
+endif
+:j5M:
+AttackRegister(AirMedium)
+Anim(jB)
+AttackDamage(700)
+AttackDuration(15)
+AttackMomentum(1100, 0, 1000, 900)
+AttackMustBlock(Overhead)
+F6-10:
+	Hitbox(0, 10000, 8000, 26000)
+endif

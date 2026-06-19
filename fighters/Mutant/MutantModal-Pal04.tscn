@@ -10,7 +10,7 @@ albedo_texture = ExtResource( 2 )
 albedo_texture = ExtResource( 2 )
 
 [node name="Mutant" instance=ExtResource( 1 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
 
 [node name="mutantmaske" parent="mutantarmature/Skeleton" index="0"]
 material/0 = SubResource( 1 )

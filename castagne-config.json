@@ -1,10 +1,11 @@
 {
-	"CharacterPaths": "res://fighters/Cage/Cage.casp, res://fighters/Mutant/Mutant.casp",
+	"CharacterPaths": "res://fighters/Cage/Cage.casp, res://fighters/Mutant/Mutant.casp, res://fighters/Thala/thala.casp",
 	"ConfigSkeleton": "res://castagne/helpers/genreskeletons/CC25DFighter.json",
 	"Editor-FirstTimeFlowDone": true,
 	"EditorCharacterOrder": [
 		100,
-		200
+		200,
+		300
 	],
 	"GameTitle": "Mutant Arena",
 	"MenuData-MainMenu": {

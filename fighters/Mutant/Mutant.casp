@@ -6,6 +6,8 @@ EditorName: Mutant
 :Specs-PhysicsTeching:
 # Automatic creation
 :Specs-PhysicsSystem:
+def PHYSICS_StandardColbox_Top int() = 20000
+def PHYSICS_StandardColbox_Width int() = 7500
 def PHYSICS_StandardHurtbox_Crouching_Top int() = 24000
 def PHYSICS_StandardHurtbox_Top int() = 50000
 :Specs-PhysicsMovement:
@@ -13,6 +15,11 @@ def MOVE_Dashes_CanAirjump bool() = 1
 def MOVE_Dashes_CanHighjump bool() = 0
 def MOVE_Dashes_CanRun bool() = 0
 def MOVE_Dashes_CanStepDash bool() = 0
+def MOVE_Jump_JumpB_InitialMomentumY int() = 3000
+def MOVE_Jump_JumpF_InitialMomentumY int() = 3000
+def MOVE_Jump_JumpN_InitialMomentumY int() = 3000
+def MOVE_Walk_SpeedB int() = -300
+def MOVE_Walk_SpeedF int() = 500
 :Specs-MenuData:
 def MENU_Hidden bool() = 0
 def MENU_Name str() = Mutant
@@ -134,7 +141,7 @@ AttackDuration(36)
 AttackMomentum(-1600, 0, 1200, 1400)
 AttackFrameAdvantage(0, -8)
 F9-13:
-	Hitbox(0, 25000, 600, 28000)
+	Hitbox(0, 29000, 15000, 28000)
 endif
 
 # --- CROUCHING ATTACKS ---

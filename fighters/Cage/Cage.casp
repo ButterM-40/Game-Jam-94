@@ -6,10 +6,12 @@ EditorName: Cage
 :Specs-PhysicsTeching:
 # Automatic creation
 :Specs-PhysicsSystem:
+def PHYSICS_StandardColbox_Width int() = 5000
 def PHYSICS_StandardHurtbox_Bottom int() = 0
-def PHYSICS_StandardHurtbox_Crouching_Width int() = 6000
+def PHYSICS_StandardHurtbox_Crouching_Top int() = 17000
+def PHYSICS_StandardHurtbox_Crouching_Width int() = 7500
 def PHYSICS_StandardHurtbox_Top int() = 25000
-def PHYSICS_StandardHurtbox_Width int() = 6000
+def PHYSICS_StandardHurtbox_Width int() = 7500
 :Specs-PhysicsMovement:
 # Automatic creation
 :Specs-MenuData:
@@ -109,7 +111,7 @@ AttackDamage(350)
 AttackDuration(10)
 AttackMomentum(800, 0, 600, 600)
 F5-7:
-	Hitbox(0, 17000, 10000, 15000)
+	Hitbox(0, 17500, 10000, 15000)
 endif
 :2M:
 Flag(Crouching)
@@ -143,7 +145,7 @@ AttackDuration(36)
 AttackMomentum(1600, 0, 1200, 1400)
 AttackFrameAdvantage(0, -8)
 F9-13:
-	Hitbox(0, 19000, 6000, 28000)
+	Hitbox(0, 20000, 6000, 28000)
 endif
 
 # --- CROUCHING ATTACKS ---
@@ -215,5 +217,8 @@ AttackDuration(28)
 AttackMomentum(1100, 0, 1000, 900)
 AttackMustBlock(Overhead)
 F6-10:
-	Hitbox(0, 14000, 2000, 14000)
+	Hitbox(0, 16000, 8000, 14000)
+endif
+F6-11:
+	Hitbox(-5000, 6000, 5000, 10000)
 endif
