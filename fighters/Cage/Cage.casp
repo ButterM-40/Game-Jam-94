@@ -171,11 +171,10 @@ endif
 :5S:
 AttackRegister(Special)
 Anim(5Special1)
-AttackDamage(900)
 AttackDuration(36)
-AttackMomentum(1800, 0, 1400, 1200)
-F10-14:
-	Hitbox(0, 15000, 4000, 18000)
+F10:
+	CreateEntity(FireBall)
+	SetTargetPosition(10000, 12000)
 endif
 :6S:
 AttackRegister(Special)
@@ -222,3 +221,15 @@ endif
 F6-11:
 	Hitbox(-5000, 6000, 5000, 10000)
 endif
+:FireBall---Subentity:
+## Describe entity here
+Skeleton: Projectile
+:FireBall---Specs-Graphics:
+def GRAPHICS_ModelPath str() = res://fighters/FXfireball.tscn
+:FireBall---Specs-Subentity:
+# Automatic creation
+:FireBall---Variables:
+## Put variables here
+:FireBall---Action:
+## Write your behavior here
+CallParent()
