@@ -135,6 +135,7 @@ func _process(delta):
 		if(i["Confirm"]):
 			menuState = MENUSTATE.PALETTE
 			UpdateDisplay()
+			css.PlaySelectSound()
 		elif(i["Back"]):
 			if(borrowedDeviceFrom != null):
 				borrowedDeviceFrom.lendingDevice = false
@@ -151,4 +152,5 @@ func _process(delta):
 					var c = selectedNode.GetNeighboor(dir)
 					if(c != null):
 						SelectCharacter(c)
+						css.PlayNavSound()
 		

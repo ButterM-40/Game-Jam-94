@@ -46,6 +46,28 @@ def GRAPHICS_SPRITE_PALETTE_4___ModelPath str() = res://fighters/Cage/CageModel-
 def GRAPHICS_SPRITE_PALETTE_4___SpritePalettePath str() = res://fighters/Cage/Cage5.jpg
 :Specs-FlowBattle:
 # Automatic creation
+:Specs-AudioSFX:
+def AUDIO_SFX_Block1 int() = 0
+def AUDIO_SFX_Block1___Filepath str() = res://fighters/sfx/block1.mp3
+def AUDIO_SFX_Block1___Volume int() = 10
+def AUDIO_SFX_Block2 int() = 0
+def AUDIO_SFX_Block2___Filepath str() = res://fighters/sfx/block2.mp3
+def AUDIO_SFX_Block2___Volume int() = 10
+def AUDIO_SFX_Block3 int() = 0
+def AUDIO_SFX_Block3___Filepath str() = res://fighters/sfx/block3.mp3
+def AUDIO_SFX_Block3___Volume int() = 10
+def AUDIO_SFX_Hit1 int() = 0
+def AUDIO_SFX_Hit1___Filepath str() = res://fighters/sfx/hit20.mp3
+def AUDIO_SFX_Hit1___Volume int() = 20
+def AUDIO_SFX_Hit2 int() = 0
+def AUDIO_SFX_Hit2___Filepath str() = res://fighters/sfx/hit22.mp3
+def AUDIO_SFX_Hit2___Volume int() = 10
+def AUDIO_SFX_Hit3 int() = 0
+def AUDIO_SFX_Hit3___Filepath str() = res://fighters/sfx/hit23.mp3
+def AUDIO_SFX_Hit3___Volume int() = 10
+def AUDIO_SFX_Swoosh int() = 0
+def AUDIO_SFX_Swoosh___Filepath str() = res://fighters/sfx/swosh-12.mp3
+def AUDIO_SFX_Swoosh___Volume int() = 10
 :Specs-AttacksTypes:
 # Automatic creation
 :Specs-AttacksThrows:
@@ -53,6 +75,7 @@ def GRAPHICS_SPRITE_PALETTE_4___SpritePalettePath str() = res://fighters/Cage/Ca
 :Specs-AttacksMechanics:
 # Automatic creation
 :Specs-Anims:
+def ANIM_Emote_Intro str() = standing
 def ANIM_Movement_Basic_Stand str() = standing
 def ANIM_Movement_Basic_Stand_Loop int() = 30
 def ANIM_Movement_Basic_WalkF str() = WalkF
@@ -102,6 +125,9 @@ AttackDuration(38)
 AttackMomentum(1400, 1200, 1000, 1800)
 AttackFrameAdvantage(0, -10)
 AttackMustBlock(Low)
+F9:
+	SFXPlay(Hit3)
+endif
 F9-13:
 	Hitbox(0, 30000, 0, 6000)
 endif
@@ -114,6 +140,9 @@ Anim(2A)
 AttackDamage(350)
 AttackDuration(10)
 AttackMomentum(800, 0, 600, 600)
+F5:
+	SFXPlay(Hit1)
+endif
 F5-7:
 	Hitbox(0, 17500, 10000, 15000)
 endif
@@ -129,6 +158,9 @@ AttackDamage(700)
 AttackDuration(20)
 AttackMomentum(1000, 0, 800, 800)
 AttackFrameAdvantage(0, -5)
+F7:
+	SFXPlay(Hit2)
+endif
 F7-10:
 	Hitbox(0, 26000, 0, 8000)
 endif
@@ -140,14 +172,15 @@ endif
 AttackRegister(Special)
 Anim(5Special3)
 AttackDamage(1100)
-AttackDuration(44)
+AttackDuration(60)
 AttackMomentum(600, 1800, 600, 2000)
 AttackKnockdown(30)
 F1:
 	AddMomentum(0,4000)
 	endif
-F12-16:
-	Hitbox(0, 13000, 0, 22000)
+F10:
+	CreateEntity(JumpEarthBending)
+	SetTargetPosition(20000, 500)
 endif
 :5H:
 AttackRegister(Heavy)
@@ -156,6 +189,9 @@ AttackDamage(1200)
 AttackDuration(36)
 AttackMomentum(1600, 0, 1200, 1400)
 AttackFrameAdvantage(0, -8)
+F9:
+	SFXPlay(Hit3)
+endif
 F9-13:
 	Hitbox(0, 20000, 6000, 28000)
 endif
@@ -170,6 +206,9 @@ Anim(5A)
 AttackDamage(400)
 AttackDuration(20)
 AttackMomentum(1000, 0, 800, 800)
+F5:
+	SFXPlay(Hit1)
+endif
 F5-7:
 	Hitbox(1000, 17000, 000, 12000)
 endif
@@ -184,6 +223,9 @@ AttackDamage(800)
 AttackDuration(18)
 AttackMomentum(1200, 0, 900, 1000)
 AttackFrameAdvantage(0, -4)
+F7:
+	SFXPlay(Hit2)
+endif
 F7-10:
 	Hitbox(1000, 24000, 17000, 23000)
 endif
@@ -199,61 +241,30 @@ F10:
 	CreateEntity(FireBall)
 	SetTargetPosition(10000, 12000)
 endif
-:5SS:
-AttackRegister(Super)
-Anim(5Special2)
-AttackDamage(900)
-AttackDuration(95)
-AttackMomentum(1800, 0, 1600, 1400)
-AttackKnockdown(60)
-
-# Startup - burst from ground as Cage charges
-F1:
-	VFXModelCreate(res://fighters/attacks/FXjumpBVERSION.tscn, 30, 0, 0)
-	AddMomentum(2800, 0)
-endif
-
-# First forward pass - ground erupts under him
-F8-15:
-	Hitbox(0, 16000, 4000, 22000)
-endif
-F10:
-	VFXModelCreate(res://fighters/attacks/FXJumpSpecial1BVERSION.tscn, 25, 10000, 0)
-endif
-F16:
-	VFXModelCreate(res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn, 30, 10000, 0)
-endif
-
-# Reverse rush back
-F28:
-	AddMomentum(-2800, 0)
-	VFXModelCreate(res://fighters/attacks/FXjumpBVERSION.tscn, 25, 0, 0)
-endif
-F36:
-	VFXModelCreate(res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn, 25, -8000, 0)
-endif
-
-# Second forward pass - bigger ground burst
-F48:
-	AddMomentum(3200, 0)
-	VFXModelCreate(res://fighters/attacks/FXjumpBVERSION.tscn, 25, 0, 0)
-	VFXModelCreate(res://fighters/attacks/FXJumpSpecial1BVERSION.tscn, 30, 8000, 0)
-endif
-F52-62:
-	Hitbox(0, 16000, 4000, 22000)
-endif
-F63:
-	VFXModelCreate(res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn, 35, 12000, 0)
-	VFXModelCreate(res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn, 30, -4000, 0)
-endif
 :6S:
 AttackRegister(Special)
 Anim(5Special2)
 AttackDamage(1000)
 AttackDuration(23)
 AttackMomentum(2000, 800, 1600, 1400)
-F11-15:
-	Hitbox(0, 14000, 6000, 20000)
+F10:
+	CreateEntity(SpikeEarthBending)
+	SetTargetPosition(10000, 20000)
+endif
+:JumpB:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
+endif
+:JumpF:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
+endif
+:JumpN:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
 endif
 :j5H:
 AttackRegister(AirHeavy)
@@ -263,6 +274,9 @@ AttackDuration(34)
 AttackMomentum(1400, 0, 1200, 1200)
 AttackMustBlock(Overhead)
 AttackKnockdown()
+F7:
+	SFXPlay(Hit3)
+endif
 F7-11:
 	Hitbox(-2000, 16000, 0, 30000)
 endif
@@ -275,6 +289,9 @@ AttackDamage(400)
 AttackDuration(12)
 AttackMomentum(900, 0, 900, 600)
 AttackMustBlock(Overhead)
+F5:
+	SFXPlay(Hit1)
+endif
 F5-8:
 	Hitbox(0, 15000, 20000, 27000)
 endif
@@ -285,12 +302,27 @@ AttackDamage(700)
 AttackDuration(28)
 AttackMomentum(1100, 0, 1000, 900)
 AttackMustBlock(Overhead)
+F6:
+	SFXPlay(Hit2)
+endif
 F6-10:
 	Hitbox(0, 16000, 8000, 14000)
 endif
 F6-11:
 	Hitbox(-5000, 6000, 5000, 10000)
 endif
+:Earth Bending---Subentity:
+## Describe entity here
+Skeleton: Projectile
+:Earth Bending---Specs-Graphics:
+def GRAPHICS_ModelPath str() = res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn
+:Earth Bending---Specs-Subentity:
+# Automatic creation
+:Earth Bending---Variables:
+## Put variables here
+:Earth Bending---Action:
+## Write your behavior here
+CallParent()
 :FireBall---Subentity:
 ## Describe entity here
 Skeleton: Projectile
@@ -303,3 +335,53 @@ def GRAPHICS_ModelPath str() = res://fighters/attacks/FXfireball.tscn
 :FireBall---Action:
 ## Write your behavior here
 CallParent()
+:JumpEarthBending---Subentity:
+Skeleton: Projectile
+:JumpEarthBending---Specs-Graphics:
+def GRAPHICS_ModelPath str() = res://fighters/attacks/FXjumpBVERSION.tscn
+def GRAPHICS_Scale int() = 2000
+:JumpEarthBending---Specs-Subentity:
+def SUBENTITY_Attack_Damage int() = 1100
+def SUBENTITY_Colbox_Use bool() = 0
+def SUBENTITY_DestroyOnGroundCollision bool() = 0
+def SUBENTITY_DestroyOnHit bool() = 0
+def SUBENTITY_Hitbox_Back int() = 10000
+def SUBENTITY_Hitbox_Bottom int() = -10000
+def SUBENTITY_Hitbox_Front int() = 30000
+def SUBENTITY_Hitbox_Top int() = 10000
+def SUBENTITY_Hitbox_Use bool() = 1
+def SUBENTITY_Hurtbox_Use bool() = 1
+def SUBENTITY_Move_X int() = 0
+def SUBENTITY_Move_Y int() = 0
+def SUBENTITY_TimeToLive int() = 80
+:JumpEarthBending---Variables:
+
+:JumpEarthBending---Action:
+CallParent()
+Anim(Jump)
+:SpikeEarthBending---Subentity:
+## Describe entity here
+Skeleton: Base
+:SpikeEarthBending---Specs-AudioSFX:
+# Automatic creation
+:SpikeEarthBending---Specs-Graphics:
+def GRAPHICS_ModelPath str() = res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn
+def GRAPHICS_Scale int() = 1500
+:SpikeEarthBending---Specs-Subentity:
+def SUBENTITY_Colbox_Phantom bool() = 1
+def SUBENTITY_Colbox_Use bool() = 0
+def SUBENTITY_DestroyOnBlock bool() = 0
+def SUBENTITY_DestroyOnHit bool() = 0
+def SUBENTITY_DestroyWhenHit bool() = 0
+def SUBENTITY_Hitbox_Back int() = 10000
+def SUBENTITY_Hitbox_Bottom int() = 10000
+def SUBENTITY_Hitbox_Front int() = 40000
+def SUBENTITY_Hitbox_Top int() = 30000
+def SUBENTITY_Hitbox_Use bool() = 1
+def SUBENTITY_TimeToLive int() = 60
+:SpikeEarthBending---Variables:
+## Put variables here
+:SpikeEarthBending---Action:
+## Write your behavior here
+CallParent()
+Anim(Groundhit)

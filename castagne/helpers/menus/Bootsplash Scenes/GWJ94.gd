@@ -1,14 +1,14 @@
 extends CanvasLayer
 
 #Logos
-var JamLogo = preload("res://castagne/helpers/menus/Bootsplash Scenes/j6AEIB.png")
-var GameLogo = preload("res://castagne/helpers/menus/Bootsplash Scenes/j6AEIB.png")
-var ThemeLogo = preload("res://castagne/helpers/menus/Bootsplash Scenes/j6AEIB.png")
+var JamLogo = preload("res://castagne/helpers/menus/Bootsplash Scenes/GWJ94Mutation.jpg")
+var GameLogo = preload("res://castagne/helpers/menus/Bootsplash Scenes/MutantArena.jpg")
+var PresentedBy = preload("res://castagne/helpers/menus/Bootsplash Scenes/presentedby.jpg")
 
 var Logos = [
 	JamLogo,
 	GameLogo,
-	ThemeLogo
+	PresentedBy
 ]
 var curr = 0
 #Scene Variables

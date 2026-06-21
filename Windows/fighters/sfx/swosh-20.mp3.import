@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/swosh-20.mp3-abd77759cf575cfafda79d5081e29261.mp3str"
+
+[deps]
+
+source_file="res://fighters/sfx/swosh-20.mp3"
+dest_files=[ "res://.import/swosh-20.mp3-abd77759cf575cfafda79d5081e29261.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

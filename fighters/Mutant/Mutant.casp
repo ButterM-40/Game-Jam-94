@@ -9,7 +9,9 @@ EditorName: Mutant
 def PHYSICS_StandardColbox_Top int() = 20000
 def PHYSICS_StandardColbox_Width int() = 7500
 def PHYSICS_StandardHurtbox_Crouching_Top int() = 24000
+def PHYSICS_StandardHurtbox_Crouching_Width int() = 6000
 def PHYSICS_StandardHurtbox_Top int() = 50000
+def PHYSICS_StandardHurtbox_Width int() = 6500
 :Specs-PhysicsMovement:
 def MOVE_Dashes_CanAirjump bool() = 1
 def MOVE_Dashes_CanHighjump bool() = 0
@@ -53,8 +55,31 @@ def GRAPHICS_SPRITE_PALETTE_4___SpritePalettePath str() = res://fighters/Mutant/
 :Specs-FlowBattle:
 
 :Specs-AudioSFX:
+def AUDIO_SFX_Hit1 int() = 0
+def AUDIO_SFX_Hit1___Filepath str() = res://fighters/sfx/hit20.mp3
+def AUDIO_SFX_Hit1___Volume int() = 1000
+def AUDIO_SFX_Hit2 int() = 0
+def AUDIO_SFX_Hit2___Filepath str() = res://fighters/sfx/hit22.mp3
+def AUDIO_SFX_Hit2___Volume int() = 1000
+def AUDIO_SFX_Hit3 int() = 0
+def AUDIO_SFX_Hit3___Filepath str() = res://fighters/sfx/hit23.mp3
+def AUDIO_SFX_Hit3___Volume int() = 1000
+def AUDIO_SFX_Swoosh int() = 0
+def AUDIO_SFX_Swoosh___Filepath str() = res://fighters/sfx/swosh-20.mp3
+def AUDIO_SFX_Swoosh___Volume int() = 1000
+def AUDIO_SFX_Block1 int() = 0
+def AUDIO_SFX_Block1___Filepath str() = res://fighters/sfx/block1.mp3
+def AUDIO_SFX_Block1___Volume int() = 1000
+def AUDIO_SFX_Block2 int() = 0
+def AUDIO_SFX_Block2___Filepath str() = res://fighters/sfx/block2.mp3
+def AUDIO_SFX_Block2___Volume int() = 1000
+def AUDIO_SFX_Block3 int() = 0
+def AUDIO_SFX_Block3___Filepath str() = res://fighters/sfx/block3.mp3
+def AUDIO_SFX_Block3___Volume int() = 1000
+:Specs-AttacksTypes:
 # Automatic creation
 :Specs-Anims:
+def ANIM_Emote_Intro str() = Stand
 def ANIM_Movement_Basic_Stand str() = Stand
 def ANIM_Movement_Basic_Stand_Loop int() = 223
 def ANIM_Movement_Basic_WalkF str() = WalkF
@@ -103,6 +128,9 @@ AttackDuration(38)
 AttackMomentum(2000, 1200, 10000, 1800)
 AttackFrameAdvantage(0, -10)
 AttackMustBlock(Low)
+F9:
+	SFXPlay(Hit3)
+endif
 F9-13:
 	Hitbox(0, 50000, 0, 20000)
 endif
@@ -115,6 +143,9 @@ Anim(2A)
 AttackDamage(350)
 AttackDuration(10)
 AttackMomentum(800, 0, 600, 600)
+F5:
+	SFXPlay(Hit1)
+endif
 F5-7:
 	Hitbox(0, 17000, 1000, 10000)
 endif
@@ -130,6 +161,9 @@ AttackDamage(700)
 AttackDuration(20)
 AttackMomentum(1200, 2400, 800, 800)
 AttackFrameAdvantage(0, -5)
+F7:
+	SFXPlay(Hit2)
+endif
 F7-10:
 	Hitbox(0, 34000, 0, 8000)
 endif
@@ -154,6 +188,9 @@ AttackDamage(1200)
 AttackDuration(36)
 AttackMomentum(-1600, 0, 1200, 1400)
 AttackFrameAdvantage(0, -8)
+F9:
+	SFXPlay(Hit3)
+endif
 F9-13:
 	Hitbox(0, 29000, 15000, 28000)
 endif
@@ -168,6 +205,9 @@ Anim(5A)
 AttackDamage(400)
 AttackDuration(20)
 AttackMomentum(1000, 0, 800, 800)
+F5:
+	SFXPlay(Hit1)
+endif
 F5-7:
 	Hitbox(0, 24000, 1000, 22000)
 endif
@@ -182,6 +222,9 @@ AttackDamage(800)
 AttackDuration(18)
 AttackMomentum(1200, 0, 900, 1000)
 AttackFrameAdvantage(0, -4)
+F7:
+	SFXPlay(Hit2)
+endif
 F7-10:
 	Hitbox(0, 20000, 1000, 20000)
 endif
@@ -215,6 +258,9 @@ AttackDuration(60)
 AttackMomentum(1400, 0, 1200, 1200)
 AttackMustBlock(Overhead)
 AttackKnockdown()
+F7:
+	SFXPlay(Hit3)
+endif
 F7-11:
 	Hitbox(0, 30000, 18000, 30000)
 endif
@@ -227,6 +273,9 @@ AttackDamage(400)
 AttackDuration(12)
 AttackMomentum(900, 0, 900, 600)
 AttackMustBlock(Overhead)
+F5:
+	SFXPlay(Hit1)
+endif
 F5-8:
 	Hitbox(-10000, 10000, 2000, 20000)
 endif
@@ -237,6 +286,27 @@ AttackDamage(700)
 AttackDuration(30)
 AttackMomentum(1100, 0, 1000, 900)
 AttackMustBlock(Overhead)
+F6:
+	SFXPlay(Hit2)
+endif
 F6-10:
 	Hitbox(0, 26000, 300, 14000)
+endif
+
+:JumpN:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
+endif
+
+:JumpF:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
+endif
+
+:JumpB:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
 endif

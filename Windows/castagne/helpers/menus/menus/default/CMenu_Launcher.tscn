@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://castagne/helpers/menus/menus/default/CMenu_Launcher.gd" type="Script" id=1]
+
+[node name="CMenu_Launcher" type="Node"]
+script = ExtResource( 1 )

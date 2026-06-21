@@ -104,12 +104,17 @@ func SFXPlay(args, stateHandle):
 
 func SFXPlay_Callback(stateHandle, sfxData, _sfxParams):
 	var soundStream = Castagne.Loader.Load(sfxData["Filepath"])
+	if soundStream == null:
+		return
+	if soundStream.has_method("set_loop"):
+		soundStream.set_loop(false)
 	var soundNode = AudioStreamPlayer.new()
 	soundNode.set_stream(soundStream)
 	soundNode.set_bus(stateHandle.ConfigData().Get("AudioBusNameSFX"))
 	soundNode.set_volume_db(PermilToDecibel(sfxData["Volume"]))
-	stateHandle.Engine().add_child(soundNode)
-	soundNode.play()
+	soundNode.connect("ready", soundNode, "play")
+	soundNode.connect("finished", soundNode, "queue_free")
+	stateHandle.Engine().call_deferred("add_child", soundNode)
 
 func SetupBuses(configData):
 	var masterBusName = configData.Get("AudioBusNameMaster")

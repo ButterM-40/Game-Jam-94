@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/menu.mp3-9489ba299f3e52453e27636744a7a27b.mp3str"
+
+[deps]
+
+source_file="res://castagne/helpers/menus/MainMenu/menu.mp3"
+dest_files=[ "res://.import/menu.mp3-9489ba299f3e52453e27636744a7a27b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

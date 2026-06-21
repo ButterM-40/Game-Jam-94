@@ -1,0 +1,13 @@
+[remap]
+
+importer="font_data_ttf"
+type="DynamicFontData"
+
+[deps]
+
+source_file="res://castagne/external/godot-rollback-netcode/log_inspector/monogram_extended.ttf"
+dest_files=[]
+
+[params]
+
+compress=true

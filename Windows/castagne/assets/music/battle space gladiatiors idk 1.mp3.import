@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/battle space gladiatiors idk 1.mp3-ffe94469ce4a8213625c87cc1c664fc1.mp3str"
+
+[deps]
+
+source_file="res://castagne/assets/music/battle space gladiatiors idk 1.mp3"
+dest_files=[ "res://.import/battle space gladiatiors idk 1.mp3-ffe94469ce4a8213625c87cc1c664fc1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

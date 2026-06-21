@@ -14,12 +14,36 @@ var stageSelected = 0
 var stageSelectPlayer = null
 var nbStages
 
+var _navSound
+var _selectSound
+
 func Setup(_menuData, menuParams):
 	devices = menuParams["Devices"]
 	nbStages = Castagne.SplitStringToArray(_configData.Get("StagePaths")).size()
+	_SetupSounds()
 	GatherCharacterList()
 	CreateCharacterGrid()
 	CreatePlayerSlots()
+
+func _SetupSounds():
+	_navSound = AudioStreamPlayer.new()
+	var navStream = load("res://castagne/helpers/menus/MainMenu/menu.mp3").duplicate()
+	navStream.loop = false
+	_navSound.stream = navStream
+	add_child(_navSound)
+	_selectSound = AudioStreamPlayer.new()
+	var selectStream = load("res://castagne/helpers/menus/MainMenu/menuSelect.mp3").duplicate()
+	selectStream.loop = false
+	_selectSound.stream = selectStream
+	add_child(_selectSound)
+
+func PlayNavSound():
+	if _navSound:
+		_navSound.play()
+
+func PlaySelectSound():
+	if _selectSound:
+		_selectSound.play()
 
 
 func GatherCharacterList():

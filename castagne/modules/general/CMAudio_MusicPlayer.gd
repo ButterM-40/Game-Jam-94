@@ -22,7 +22,7 @@ func InitFromData(musicData):
 	set_volume_db(musicData["Volume"])
 
 var currentPos = 0.0
-func _process(delta):
+func _process(_delta):
 	if(loopEnd > 0):
 		currentPos = get_playback_position()
 		if(currentPos >= loopEnd):

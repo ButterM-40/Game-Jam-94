@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/maiin menu ttheme.mp3-30d0acc2685839cbedc587d7c8be371d.mp3str"
+
+[deps]
+
+source_file="res://castagne/assets/music/maiin menu ttheme.mp3"
+dest_files=[ "res://.import/maiin menu ttheme.mp3-30d0acc2685839cbedc587d7c8be371d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

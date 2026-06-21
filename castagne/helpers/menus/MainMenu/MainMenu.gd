@@ -5,9 +5,14 @@
 extends "../CastagneMenuCore.gd"
 
 onready var _deviceSelect = $CanvasLayer/DeviceSelect
+onready var _menuSound = $CanvasLayer/MenuSound
+var _menuInitialized = false
 
 func _ready():
 	_configData = Castagne.baseConfigData
+	if _menuSound != null and _menuSound.stream != null:
+		_menuSound.stream = _menuSound.stream.duplicate()
+		_menuSound.stream.loop = false
 	var menuData = Castagne.baseConfigData.Get("MenuData-MainMenu").duplicate(true)
 	menuData["DefaultElements"] = {
 		Castagne.MENUS_ELEMENT_TYPES.ACTION: Castagne.Loader.Load("res://castagne/helpers/menus/elements/default/CMED-Action.tscn"),
@@ -17,6 +22,12 @@ func _ready():
 	_PlayMenuMusic()
 	_PoseCharacter($Model, "5C", 0.0)
 	_PoseCharacter($Thala, "5C", 0.167)
+	_menuInitialized = true
+
+func Select(option, _extra=null):
+	.Select(option, _extra)
+	if _menuInitialized:
+		_menuSound.play()
 
 func _PoseCharacter(model, animName, seek):
 	if model == null:
@@ -44,15 +55,19 @@ func _PlayMenuMusic():
 func Setup(menuData, menuParams):
 	for option in menuData["Options"]:
 		if option["ScenePath"] == null:
-			option["ScenePath"] = "res://castagne/helpers/menus/MainMenu/MenuButton.tscn"
+			if option.get("Type", 0) == 1:
+				option["ScenePath"] = "res://castagne/helpers/menus/MainMenu/VSMenuButton.tscn"
+			else:
+				option["ScenePath"] = "res://castagne/helpers/menus/MainMenu/MenuButton.tscn"
 	.Setup(menuData, menuParams)
 
 func MCB_MMTraining(_args):
 	StartDeviceSelect(funcref(self, "TrainingStart"))
-func MCB_MMLocalBattle(_args):
-	StartDeviceSelect(funcref(self, "LocalBattleStart"))
-func MCB_MMVsCPU(_args):
-	StartDeviceSelect(funcref(self, "VsCPUStart"))
+func MCB_MMVS(_args, selectedOption):
+	if selectedOption == 0:
+		StartDeviceSelect(funcref(self, "LocalBattleStart"))
+	else:
+		StartDeviceSelect(funcref(self, "VsCPUStart"))
 func MCB_MMOptions(_args):
 	queue_free()
 	get_tree().get_root().add_child(Castagne.Menus.InstanceMenu("Options", null, _configData))

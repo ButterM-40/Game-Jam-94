@@ -13,4 +13,6 @@ Call(AttackReactEvents-Defender-Audio)
 _Category(Internals/Attacks/React)
 _Helper()
 
-## TODO
+EOnBlocking:
+	SFXPlay(Block1)
+endif

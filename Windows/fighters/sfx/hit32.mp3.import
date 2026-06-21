@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hit32.mp3-9f2eccb188e72524297c90d32ef75028.mp3str"
+
+[deps]
+
+source_file="res://fighters/sfx/hit32.mp3"
+dest_files=[ "res://.import/hit32.mp3-9f2eccb188e72524297c90d32ef75028.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
