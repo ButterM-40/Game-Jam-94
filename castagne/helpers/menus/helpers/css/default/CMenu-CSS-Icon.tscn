@@ -4,9 +4,9 @@
 [ext_resource path="res://castagne/helpers/menus/helpers/css/default/CMenu-CSS-Icon-Default.gd" type="Script" id=2]
 
 [node name="CMenu-CSS-Icon" type="Control"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
+margin_right = 436.0
+margin_bottom = 436.0
+rect_min_size = Vector2( 436, 436 )
 script = ExtResource( 2 )
 
 [node name="Icon" type="TextureRect" parent="."]

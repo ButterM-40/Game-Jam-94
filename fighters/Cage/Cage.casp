@@ -15,6 +15,10 @@ def PHYSICS_StandardHurtbox_Width int() = 7500
 :Specs-PhysicsMovement:
 # Automatic creation
 :Specs-MenuData:
+def MENU_CSSGridX int() = 0
+def MENU_CSSGridY int() = 0
+def MENU_CSSGridZ int() = 0
+def MENU_CSSIconPath str() = res://castagne/assets/icons/pCage.png
 def MENU_Hidden bool() = 0
 def MENU_Name str() = Cage
 :Specs-Graphics:
@@ -113,6 +117,10 @@ AttackMomentum(800, 0, 600, 600)
 F5-7:
 	Hitbox(0, 17500, 10000, 15000)
 endif
+PAI:
+	AIAttackCancelOnHit(2M)
+	AIAttackCancelOnTouch(2M)
+endif
 :2M:
 Flag(Crouching)
 AttackRegister(Medium)
@@ -123,6 +131,10 @@ AttackMomentum(1000, 0, 800, 800)
 AttackFrameAdvantage(0, -5)
 F7-10:
 	Hitbox(0, 26000, 0, 8000)
+endif
+PAI:
+	AIAttackCancelOnHit(5M)
+	AIAttackCancelOnHit(6S)
 endif
 :4S:
 AttackRegister(Special)
@@ -147,6 +159,9 @@ AttackFrameAdvantage(0, -8)
 F9-13:
 	Hitbox(0, 20000, 6000, 28000)
 endif
+PAI:
+	AIAttackCancelOnHit(6S)
+endif
 
 # --- CROUCHING ATTACKS ---
 :5L:
@@ -158,6 +173,10 @@ AttackMomentum(1000, 0, 800, 800)
 F5-7:
 	Hitbox(1000, 17000, 000, 12000)
 endif
+PAI:
+	AIAttackCancelOnHit(5M)
+	AIAttackCancelOnTouch(5M)
+endif
 :5M:
 AttackRegister(Medium)
 Anim(5B)
@@ -168,6 +187,10 @@ AttackFrameAdvantage(0, -4)
 F7-10:
 	Hitbox(1000, 24000, 17000, 23000)
 endif
+PAI:
+	AIAttackCancelOnHit(5H)
+	AIAttackCancelOnHit(6S)
+endif
 :5S:
 AttackRegister(Special)
 Anim(5Special1)
@@ -175,6 +198,53 @@ AttackDuration(36)
 F10:
 	CreateEntity(FireBall)
 	SetTargetPosition(10000, 12000)
+endif
+:5SS:
+AttackRegister(Super)
+Anim(5Special2)
+AttackDamage(900)
+AttackDuration(95)
+AttackMomentum(1800, 0, 1600, 1400)
+AttackKnockdown(60)
+
+# Startup - burst from ground as Cage charges
+F1:
+	VFXModelCreate(res://fighters/attacks/FXjumpBVERSION.tscn, 30, 0, 0)
+	AddMomentum(2800, 0)
+endif
+
+# First forward pass - ground erupts under him
+F8-15:
+	Hitbox(0, 16000, 4000, 22000)
+endif
+F10:
+	VFXModelCreate(res://fighters/attacks/FXJumpSpecial1BVERSION.tscn, 25, 10000, 0)
+endif
+F16:
+	VFXModelCreate(res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn, 30, 10000, 0)
+endif
+
+# Reverse rush back
+F28:
+	AddMomentum(-2800, 0)
+	VFXModelCreate(res://fighters/attacks/FXjumpBVERSION.tscn, 25, 0, 0)
+endif
+F36:
+	VFXModelCreate(res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn, 25, -8000, 0)
+endif
+
+# Second forward pass - bigger ground burst
+F48:
+	AddMomentum(3200, 0)
+	VFXModelCreate(res://fighters/attacks/FXjumpBVERSION.tscn, 25, 0, 0)
+	VFXModelCreate(res://fighters/attacks/FXJumpSpecial1BVERSION.tscn, 30, 8000, 0)
+endif
+F52-62:
+	Hitbox(0, 16000, 4000, 22000)
+endif
+F63:
+	VFXModelCreate(res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn, 35, 12000, 0)
+	VFXModelCreate(res://fighters/attacks/FXSpecial2GroundhitBVERSION.tscn, 30, -4000, 0)
 endif
 :6S:
 AttackRegister(Special)
@@ -225,7 +295,7 @@ endif
 ## Describe entity here
 Skeleton: Projectile
 :FireBall---Specs-Graphics:
-def GRAPHICS_ModelPath str() = res://fighters/FXfireball.tscn
+def GRAPHICS_ModelPath str() = res://fighters/attacks/FXfireball.tscn
 :FireBall---Specs-Subentity:
 # Automatic creation
 :FireBall---Variables:

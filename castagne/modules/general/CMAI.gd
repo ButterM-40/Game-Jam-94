@@ -93,6 +93,8 @@ func AITransition(args, stateHandle):
 func AITransitionHere(_args, stateHandle):
 	AITransition([stateHandle.EntityGet("_State")], stateHandle)
 
+func AIInputTransition(args, stateHandle):
+	stateHandle.EntitySet("_AIAttackCancelNeutral", ArgStr(args, stateHandle, 0))
 
 func AIAttackCancelOnHit(args, stateHandle):
 	stateHandle.EntitySet("_AIAttackCancelHit", ArgStr(args, stateHandle, 0))

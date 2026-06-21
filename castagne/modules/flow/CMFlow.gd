@@ -103,6 +103,9 @@ func GetBattleInitDataFromCSS(cssData):
 	var bid = GetBaseBattleInitData(cssData["ConfigData"])
 	var stage = cssData["Stage"]
 	bid["map"] = stage
+	var musicDataAll = cssData["ConfigData"].Get("MusicData")
+	if musicDataAll.size() > 0:
+		bid["music"] = 1
 	
 	var avoidSamePalette = !(cssData["ConfigData"].Get("Flow-AllowSamePalette"))
 	var characterPaletteIndex = {}

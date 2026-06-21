@@ -53,6 +53,15 @@
 	},
 	"MenuScene-MainMenu": "res://castagne/helpers/menus/MainMenu/MainMenu.tscn",
 	"Modules-core": "res://castagne/modules/core/CMCore.gd",
+	"MusicData": [
+		{
+			"Filepath": "res://castagne/assets/music/battle space gladiatiors idk 1.mp3",
+			"LoopEnd": 0,
+			"LoopStart": 0,
+			"Name": "Track 1",
+			"Volume": 0
+		}
+	],
 	"Skeletons": "res://fighters/Skeleton.casp",
-	"StagePaths": "res://castagne/assets/map/stage1.tscn"
+	"StagePaths": "res://castagne/assets/map/stage1v2.tscn"
 }

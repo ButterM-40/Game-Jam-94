@@ -255,6 +255,8 @@ func TryAdvance():
 	return true
 
 func Advance():
+	for n in get_tree().get_nodes_in_group("MenuMusic"):
+		n.queue_free()
 	if(_menuParams.has("CallbackAdvance")):
 		var selectData = []
 		for ps in playerSlots:

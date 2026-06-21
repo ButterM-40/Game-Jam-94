@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://castagne/helpers/menus/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://castagne/helpers/menus/helpers/main/CMenu-DeviceSelect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fighters/Thala/ThalaModel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fighters/Cage/CageModel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://castagne/assets/map/stage1v2.tscn" type="PackedScene" id=5]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource( 1 )
@@ -10,9 +13,10 @@ MenuRootPath = "CanvasLayer/ColorRect/Menu"
 [node name="Spatial" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.781596 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79454, 0.781596 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Spatial"]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -27,7 +31,10 @@ margin_left = -199.5
 margin_right = 199.5
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "GAME TITLE"
+text = "
+
+
+Mutant Arena"
 align = 1
 
 [node name="Menu" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
@@ -41,3 +48,24 @@ alignment = 1
 [node name="DeviceSelect" parent="CanvasLayer" instance=ExtResource( 2 )]
 unique_name_in_owner = true
 visible = false
+
+[node name="Thala" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.197111, 0.0892417, -2.69126 )
+
+[node name="BirdMesh" parent="Thala/BirdArmature/Skeleton" index="0"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
+
+[node name="Model" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.332537, 0, -0.373389, 0, 0.5, 0, 0.373389, 0, -0.332537, 3.16539, 0.708786, -3.46402 )
+
+[node name="LionArmature" parent="Model" index="0"]
+transform = Transform( 0.988105, 0, 0.153779, 0, 1, 0, -0.153779, 0, 0.988105, 0.0630789, 0, 0.0605621 )
+
+[node name="lion" parent="Model/LionArmature/Skeleton" index="2"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
+
+[node name="stage1v2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 1.04294, 0.089202, -4.40443 )
+
+[editable path="Thala"]
+[editable path="Model"]

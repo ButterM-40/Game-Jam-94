@@ -6,25 +6,108 @@
 ## etc.
 :Variables:
 ## These variables are common to all characters since it's in the skeleton.
+var AI_OpponentX int() = 0
+var AI_DistX int() = 0
+var AI_OpponentY int() = 0
+
 :AI-Multiplexer-Neutral:
-PAI:
-	AITransition(AI-Walk)
+PAI,Reaction:
+    R20:
+        AITransition(AI-Block)
+    R80
+        AITransition(AI-Approach)
+    endif
 endif
+
+:AI-Approach:
+PAI:
+CopyFromTarget(AI_OpponentX, _PositionX)
+CopyFromTarget(AI_OpponentY, _PositionY)
+Sub(AI_OpponentX, _PositionX, AI_DistX)
+
+# Reaction delay: wait ~40 frames in neutral before committing to an attack
+V_AIStateFrameID>10:
+    VAI_DistX<14000:
+        VAI_DistX>-14000:
+            # Opponent is airborne - jump with them or poke
+            VAI_OpponentY>500:
+                R40:
+                    InputPress(Up)
+                R35
+                    AIInputTransition(5L)
+                R25
+                    AIInputTransition(5M)
+                endif
+            else
+                # Opponent on ground - mix standing and low attacks
+                R30:
+                    AIInputTransition(5L)
+                R25
+                    AIInputTransition(5M)
+                R20
+                    AIInputTransition(2L)
+                R15
+                    AIInputTransition(2M)
+                R5
+                    AIInputTransition(6S)
+                R5
+                    AIInputTransition(2H)
+                endif
+            endif
+        endif
+    endif
+endif
+
+# Movement: walk forward, idle, crouch, or jump
+R80:
+    VAI_DistX>0:
+        InputPress(Right)
+    else
+        InputPress(Left)
+    endif
+R10
+R5
+    InputPress(Down)
+R5
+    InputPress(Up)
+endif
+
+endif
+
+:AI-Block:
+PAI:
+CopyFromTarget(AI_OpponentX, _PositionX)
+Sub(AI_OpponentX, _PositionX, AI_DistX)
+
+# Hold back to block incoming attacks
+VAI_DistX>0:
+    InputPress(Left)
+else
+    InputPress(Right)
+endif
+
+# After ~60 frames, return to approach
+V_AIStateFrameID>60:
+    AITransition(AI-Approach)
+endif
+
+endif
+
 :AI-Walk:
 PAI:
 F1%60:
-	R50:
-		Flag(AIWalkRight)
-	R50
-		Unflag(AIWalkRight)
-	endif
+    R50:
+        Flag(AIWalkRight)
+    R50
+        Unflag(AIWalkRight)
+    endif
 endif
 
 LAIWalkRight:
-	InputPress(Right)
-	FlagNext(AIWalkRight)
+    InputPress(Right)
+    FlagNext(AIWalkRight)
 else
-	InputPress(Left)
+    InputPress(Left)
 endif
 
 endif

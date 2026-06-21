@@ -4,7 +4,7 @@ EditorName: Mutant
 :Specs-UI:
 # Automatic creation
 :Specs-PhysicsTeching:
-# Automatic creation
+
 :Specs-PhysicsSystem:
 def PHYSICS_StandardColbox_Top int() = 20000
 def PHYSICS_StandardColbox_Width int() = 7500
@@ -21,6 +21,10 @@ def MOVE_Jump_JumpN_InitialMomentumY int() = 3000
 def MOVE_Walk_SpeedB int() = -300
 def MOVE_Walk_SpeedF int() = 500
 :Specs-MenuData:
+def MENU_CSSGridX int() = 2
+def MENU_CSSGridY int() = 0
+def MENU_CSSGridZ int() = 0
+def MENU_CSSIconPath str() = res://castagne/assets/icons/pMutant.png
 def MENU_Hidden bool() = 0
 def MENU_Name str() = Mutant
 :Specs-Graphics:
@@ -48,6 +52,8 @@ def GRAPHICS_SPRITE_PALETTE_4___ModelPath str() = res://fighters/Mutant/MutantMo
 def GRAPHICS_SPRITE_PALETTE_4___SpritePalettePath str() = res://fighters/Mutant/mutant5.jpg
 :Specs-FlowBattle:
 
+:Specs-AudioSFX:
+# Automatic creation
 :Specs-Anims:
 def ANIM_Movement_Basic_Stand str() = Stand
 def ANIM_Movement_Basic_Stand_Loop int() = 223
@@ -112,6 +118,10 @@ AttackMomentum(800, 0, 600, 600)
 F5-7:
 	Hitbox(0, 17000, 1000, 10000)
 endif
+PAI:
+	AIAttackCancelOnHit(2M)
+	AIAttackCancelOnTouch(2M)
+endif
 :2M:
 Flag(Crouching)
 AttackRegister(Medium)
@@ -122,6 +132,10 @@ AttackMomentum(1200, 2400, 800, 800)
 AttackFrameAdvantage(0, -5)
 F7-10:
 	Hitbox(0, 34000, 0, 8000)
+endif
+PAI:
+	AIAttackCancelOnHit(5M)
+	AIAttackCancelOnHit(6S)
 endif
 :4S:
 AttackRegister(Special)
@@ -143,6 +157,9 @@ AttackFrameAdvantage(0, -8)
 F9-13:
 	Hitbox(0, 29000, 15000, 28000)
 endif
+PAI:
+	AIAttackCancelOnHit(6S)
+endif
 
 # --- CROUCHING ATTACKS ---
 :5L:
@@ -154,6 +171,10 @@ AttackMomentum(1000, 0, 800, 800)
 F5-7:
 	Hitbox(0, 24000, 1000, 22000)
 endif
+PAI:
+	AIAttackCancelOnHit(5M)
+	AIAttackCancelOnTouch(5M)
+endif
 :5M:
 AttackRegister(Medium)
 Anim(5B)
@@ -163,6 +184,10 @@ AttackMomentum(1200, 0, 900, 1000)
 AttackFrameAdvantage(0, -4)
 F7-10:
 	Hitbox(0, 20000, 1000, 20000)
+endif
+PAI:
+	AIAttackCancelOnHit(5H)
+	AIAttackCancelOnHit(6S)
 endif
 :5S:
 AttackRegister(Special)
@@ -209,7 +234,7 @@ endif
 AttackRegister(AirMedium)
 Anim(jB)
 AttackDamage(700)
-AttackDuration(100)
+AttackDuration(30)
 AttackMomentum(1100, 0, 1000, 900)
 AttackMustBlock(Overhead)
 F6-10:

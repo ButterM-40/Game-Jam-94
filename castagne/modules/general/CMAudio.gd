@@ -64,6 +64,8 @@ func ModuleSetup():
 
 func BattleInit(stateHandle, battleInitData):
 	SetupBuses(stateHandle.ConfigData())
+	for n in stateHandle.Engine().get_tree().get_nodes_in_group("MenuMusic"):
+		n.queue_free()
 	var musicID = battleInitData["music"]
 	var musicDataAll = stateHandle.ConfigData().Get("MusicData")
 	if(musicID < 0 || musicID >= len(musicDataAll) + 1):

@@ -7,7 +7,6 @@ extends "../CastagneMenuCore.gd"
 onready var _deviceSelect = $CanvasLayer/DeviceSelect
 
 func _ready():
-	
 	_configData = Castagne.baseConfigData
 	var menuData = Castagne.baseConfigData.Get("MenuData-MainMenu").duplicate(true)
 	menuData["DefaultElements"] = {
@@ -15,7 +14,32 @@ func _ready():
 		Castagne.MENUS_ELEMENT_TYPES.LIST: Castagne.Loader.Load("res://castagne/helpers/menus/elements/default/CMED-List.tscn"),
 	}
 	InitMenu(menuData, null)
-	pass
+	_PlayMenuMusic()
+	_PoseCharacter($Model, "5C", 0.0)
+	_PoseCharacter($Thala, "5C", 0.167)
+
+func _PoseCharacter(model, animName, seek):
+	if model == null:
+		return
+	var animPlayer = model.get_node_or_null("AnimationPlayer")
+	animPlayer.play(animName)
+	animPlayer.seek(seek, true)
+	animPlayer.stop(false)
+
+func _PlayMenuMusic():
+	if get_tree().get_nodes_in_group("MenuMusic").size() > 0:
+		return
+	var musicPlayer = AudioStreamPlayer.new()
+	musicPlayer.set_script(load("res://castagne/modules/general/CMAudio_MusicPlayer.gd"))
+	musicPlayer.add_to_group("MenuMusic")
+	get_tree().get_root().add_child(musicPlayer)
+	musicPlayer.InitFromData({
+		"Filepath": "res://castagne/assets/music/maiin menu ttheme.mp3",
+		"Volume": 0,
+		"LoopStart": 0,
+		"LoopEnd": 0,
+	})
+	musicPlayer.play()
 
 func Setup(menuData, menuParams):
 	for option in menuData["Options"]:

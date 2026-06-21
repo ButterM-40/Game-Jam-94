@@ -21,6 +21,10 @@ def MOVE_Jump_JumpN_InitialMomentumY int() = 3500
 def MOVE_Walk_SpeedB int() = -400
 def MOVE_Walk_SpeedF int() = 800
 :Specs-MenuData:
+def MENU_CSSGridX int() = 1
+def MENU_CSSGridY int() = 0
+def MENU_CSSGridZ int() = 0
+def MENU_CSSIconPath str() = res://castagne/assets/icons/pThala.png
 def MENU_Hidden bool() = 0
 def MENU_Name str() = Thala
 :Specs-Graphics:
@@ -119,6 +123,10 @@ AttackMomentum(800, 0, 600, 600)
 F5-7:
 	Hitbox(8000, 16500, 0, 6000)
 endif
+PAI:
+	AIAttackCancelOnHit(2M)
+	AIAttackCancelOnTouch(2M)
+endif
 :2M:
 Flag(Crouching)
 AttackRegister(Medium)
@@ -129,6 +137,10 @@ AttackMomentum(1000, 0, 800, 800)
 AttackFrameAdvantage(0, -5)
 F7-10:
 	Hitbox(0, 25000, 0, 5000)
+endif
+PAI:
+	AIAttackCancelOnHit(5M)
+	AIAttackCancelOnHit(6S)
 endif
 :4S:
 AttackRegister(Special)
@@ -153,6 +165,9 @@ AttackFrameAdvantage(0, -8)
 F9-13:
 	Hitbox(0, 16200, 17000, 24000)
 endif
+PAI:
+	AIAttackCancelOnHit(6S)
+endif
 
 # --- CROUCHING ATTACKS ---
 :5L:
@@ -164,6 +179,10 @@ AttackMomentum(1000, 0, 800, 800)
 F5-7:
 	Hitbox(0, 14500, 18000, 22000)
 endif
+PAI:
+	AIAttackCancelOnHit(5M)
+	AIAttackCancelOnTouch(5M)
+endif
 :5M:
 AttackRegister(Medium)
 Anim(5B)
@@ -173,6 +192,10 @@ AttackMomentum(1200, 0, 900, 1000)
 AttackFrameAdvantage(0, -4)
 F7-10:
 	Hitbox(1000, 20000, 19000, 24000)
+endif
+PAI:
+	AIAttackCancelOnHit(5S)
+	AIAttackCancelOnHit(6S)
 endif
 :5S:
 AttackRegister(Special)
