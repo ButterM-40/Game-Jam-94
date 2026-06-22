@@ -125,11 +125,9 @@ AttackDuration(38)
 AttackMomentum(1400, 1200, 1000, 1800)
 AttackFrameAdvantage(0, -10)
 AttackMustBlock(Low)
-F9:
-	SFXPlay(Hit3)
-endif
+
 F9-13:
-	Hitbox(0, 30000, 0, 6000)
+	Hitbox(7000, 25000, 0, 6000)
 endif
 
 # --- AIR ATTACKS ---
@@ -140,11 +138,9 @@ Anim(2A)
 AttackDamage(350)
 AttackDuration(10)
 AttackMomentum(800, 0, 600, 600)
-F5:
-	SFXPlay(Hit1)
-endif
-F5-7:
-	Hitbox(0, 17500, 10000, 15000)
+
+F4-6:
+	Hitbox(5000, 17000, 10000, 15000)
 endif
 PAI:
 	AIAttackCancelOnHit(2M)
@@ -155,14 +151,12 @@ Flag(Crouching)
 AttackRegister(Medium)
 Anim(2B)
 AttackDamage(700)
-AttackDuration(20)
+AttackDuration(25)
 AttackMomentum(1000, 0, 800, 800)
 AttackFrameAdvantage(0, -5)
-F7:
-	SFXPlay(Hit2)
-endif
+
 F7-10:
-	Hitbox(0, 26000, 0, 8000)
+	Hitbox(0, 24000, 0, 6000)
 endif
 PAI:
 	AIAttackCancelOnHit(5M)
@@ -172,15 +166,16 @@ endif
 AttackRegister(Special)
 Anim(5Special3)
 AttackDamage(1100)
-AttackDuration(60)
+AttackDuration(55)
 AttackMomentum(600, 1800, 600, 2000)
 AttackKnockdown(30)
 F1:
-	AddMomentum(0,4000)
-	endif
-F10:
+	AddMomentum(0,3000)
 	CreateEntity(JumpEarthBending)
-	SetTargetPosition(20000, 500)
+	SetTargetPosition(0, -15000)
+endif
+F3-7:
+	Hitbox(-5000, 12000, 10000, 30000)
 endif
 :5H:
 AttackRegister(Heavy)
@@ -189,11 +184,10 @@ AttackDamage(1200)
 AttackDuration(36)
 AttackMomentum(1600, 0, 1200, 1400)
 AttackFrameAdvantage(0, -8)
-F9:
-	SFXPlay(Hit3)
-endif
+AttackMustBlock(Overhead)
+
 F9-13:
-	Hitbox(0, 20000, 6000, 28000)
+	Hitbox(10000, 20000, 6000, 20000)
 endif
 PAI:
 	AIAttackCancelOnHit(6S)
@@ -206,11 +200,9 @@ Anim(5A)
 AttackDamage(400)
 AttackDuration(20)
 AttackMomentum(1000, 0, 800, 800)
-F5:
-	SFXPlay(Hit1)
-endif
-F5-7:
-	Hitbox(1000, 17000, 000, 12000)
+
+F4-6:
+	Hitbox(5000, 15000, 2000, 10000)
 endif
 PAI:
 	AIAttackCancelOnHit(5M)
@@ -226,8 +218,8 @@ AttackFrameAdvantage(0, -4)
 F7:
 	SFXPlay(Hit2)
 endif
-F7-10:
-	Hitbox(1000, 24000, 17000, 23000)
+F6-9:
+	Hitbox(10000, 20000, 17000, 23000)
 endif
 PAI:
 	AIAttackCancelOnHit(5H)
@@ -245,11 +237,11 @@ endif
 AttackRegister(Special)
 Anim(5Special2)
 AttackDamage(1000)
-AttackDuration(23)
+AttackDuration(60)
 AttackMomentum(2000, 800, 1600, 1400)
 F10:
 	CreateEntity(SpikeEarthBending)
-	SetTargetPosition(10000, 20000)
+	SetTargetPosition(10000, 0)
 endif
 :JumpB:
 CallParent()
@@ -302,9 +294,7 @@ AttackDamage(700)
 AttackDuration(28)
 AttackMomentum(1100, 0, 1000, 900)
 AttackMustBlock(Overhead)
-F6:
-	SFXPlay(Hit2)
-endif
+
 F6-10:
 	Hitbox(0, 16000, 8000, 14000)
 endif

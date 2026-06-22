@@ -52,12 +52,6 @@ def GRAPHICS_SPRITE_PALETTE_4___ModelPath str() = res://fighters/Thala/ThalaMode
 def GRAPHICS_SPRITE_PALETTE_4___SpritePalettePath str() = res://fighters/Thala/Thala5.jpg
 :Specs-FlowBattle:
 # Automatic creation
-:Specs-AttacksTypes:
-# Automatic creation
-:Specs-AttacksThrows:
-# Automatic creation
-:Specs-AttacksMechanics:
-# Automatic creation
 :Specs-AudioSFX:
 def AUDIO_SFX_Hit1 int() = 0
 def AUDIO_SFX_Hit1___Filepath str() = res://fighters/sfx/hit20.mp3
@@ -80,6 +74,12 @@ def AUDIO_SFX_Block2___Volume int() = 1000
 def AUDIO_SFX_Block3 int() = 0
 def AUDIO_SFX_Block3___Filepath str() = res://fighters/sfx/block3.mp3
 def AUDIO_SFX_Block3___Volume int() = 1000
+:Specs-AttacksTypes:
+# Automatic creation
+:Specs-AttacksThrows:
+# Automatic creation
+:Specs-AttacksMechanics:
+# Automatic creation
 :Specs-Anims:
 def ANIM_Emote_Dead str() = Down
 def ANIM_Emote_Intro str() = Stand
@@ -131,11 +131,13 @@ AttackDuration(30)
 AttackMomentum(1400, 1200, 1000, 1800)
 AttackFrameAdvantage(0, -10)
 AttackMustBlock(Low)
-F9:
-	SFXPlay(Hit3)
+
+F1:
+	AddMomentum(1800,0)
 endif
+
 F9-13:
-	Hitbox(0, 24000, 0, 5000)
+	Hitbox(0, 21000, 0, 5000)
 endif
 
 # --- AIR ATTACKS ---
@@ -146,11 +148,10 @@ Anim(2A)
 AttackDamage(350)
 AttackDuration(12)
 AttackMomentum(800, 0, 600, 600)
-F5:
-	SFXPlay(Hit1)
-endif
+AttackMustBlock(Low)
+
 F5-7:
-	Hitbox(8000, 16500, 0, 6000)
+	Hitbox(8000, 15000, 0, 5000)
 endif
 PAI:
 	AIAttackCancelOnHit(2M)
@@ -164,11 +165,10 @@ AttackDamage(700)
 AttackDuration(18)
 AttackMomentum(1000, 0, 800, 800)
 AttackFrameAdvantage(0, -5)
-F7:
-	SFXPlay(Hit2)
-endif
+AttackMustBlock(Low)
+
 F7-10:
-	Hitbox(0, 25000, 0, 5000)
+	Hitbox(5000, 23000, 0, 5000)
 endif
 PAI:
 	AIAttackCancelOnHit(5M)
@@ -195,8 +195,11 @@ F40:
 	Hitbox(1000, 16000, 15000, 20000)
 endif
 F1:
-	AddMomentum(-100,0)
-	endif
+	AddMomentum(2000,0)
+endif
+F20:
+	AddMomentum(2000,0)
+endif
 :5H:
 AttackRegister(Heavy)
 Anim(5C)
@@ -204,11 +207,9 @@ AttackDamage(800)
 AttackDuration(25)
 AttackMomentum(1600, 0, 500, 1400)
 AttackFrameAdvantage(0, -8)
-F9:
-	SFXPlay(Hit3)
-endif
+
 F9-13:
-	Hitbox(0, 16200, 17000, 24000)
+	Hitbox(1000, 19000, 13000, 24000)
 endif
 PAI:
 	AIAttackCancelOnHit(6S)
@@ -221,11 +222,9 @@ Anim(5A)
 AttackDamage(400)
 AttackDuration(15)
 AttackMomentum(1000, 0, 800, 800)
-F5:
-	SFXPlay(Hit1)
-endif
+
 F5-7:
-	Hitbox(0, 14500, 18000, 22000)
+	Hitbox(1000, 14000, 18000, 22000)
 endif
 PAI:
 	AIAttackCancelOnHit(5M)
@@ -238,11 +237,9 @@ AttackDamage(800)
 AttackDuration(15)
 AttackMomentum(1200, 0, 900, 1000)
 AttackFrameAdvantage(0, -4)
-F7:
-	SFXPlay(Hit2)
-endif
+
 F7-10:
-	Hitbox(1000, 20000, 19000, 24000)
+	Hitbox(5000, 18500, 19000, 24000)
 endif
 PAI:
 	AIAttackCancelOnHit(5S)
@@ -254,26 +251,41 @@ Anim(Special2)
 AttackDamage(900)
 AttackDuration(25)
 AttackMomentum(1800, 0, 1400, 1200)
-F10-14:
+F3-14:
 	Hitbox(1000, 8000, 18000, 30000)
 	Hitbox(0, 6000, 10000, 18000)
 	Hitbox(-4000, 4000, 1000, 12000)
 endif
-F1:
-	AddMomentum(1800,2500)
+F1-5:
+	AddMomentum(180,1000)
 	endif
 :6S:
 AttackRegister(Special)
 Anim(Special1)
 AttackDamage(1100)
-AttackDuration(28)
+AttackDuration(60)
 AttackMomentum(600, 0, 600, 2000)
 AttackKnockdown(30)
-F1:
-	AddMomentum(2500,0)
+F1-25:
+	AddMomentum(250,0)
 	endif
 F12-16:
 	Hitbox(0, 21000, 12000, 16000)
+endif
+:JumpB:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
+endif
+:JumpF:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
+endif
+:JumpN:
+CallParent()
+F1:
+	SFXPlay(Swoosh)
 endif
 :j5H:
 AttackRegister(AirHeavy)
@@ -283,9 +295,7 @@ AttackDuration(34)
 AttackMomentum(1400, 0, 1200, 1200)
 AttackMustBlock(Overhead)
 AttackKnockdown()
-F7:
-	SFXPlay(Hit3)
-endif
+
 F7-11:
 	Hitbox(10000, 18000, 3000, 9000)
 endif
@@ -301,9 +311,7 @@ AttackDamage(400)
 AttackDuration(24)
 AttackMomentum(900, 0, 900, 600)
 AttackMustBlock(Overhead)
-F5:
-	SFXPlay(Hit1)
-endif
+
 F5-8:
 	Hitbox(-1000, 7000, 6000, 10000)
 endif
@@ -314,27 +322,7 @@ AttackDamage(700)
 AttackDuration(15)
 AttackMomentum(1100, 0, 1000, 900)
 AttackMustBlock(Overhead)
-F6:
-	SFXPlay(Hit2)
-endif
+
 F6-10:
-	Hitbox(0, 10000, 8000, 26000)
-endif
-
-:JumpN:
-CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
-
-:JumpF:
-CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
-
-:JumpB:
-CallParent()
-F1:
-	SFXPlay(Swoosh)
+	Hitbox(0, 10000, 12000, 28000)
 endif
