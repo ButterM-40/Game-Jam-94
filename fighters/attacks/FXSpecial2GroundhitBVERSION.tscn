@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://fighters/attacks/FXSpecial2GroundhitBVERSION.glb" type="PackedScene" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_cull_mode = 1
+albedo_color = Color( 0.956863, 0.956863, 0.956863, 1 )
 
 [node name="FXSpecial2GroundhitBVERSION" instance=ExtResource( 1 )]
 
 [node name="GroundHit" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.978414, -0.721447, -9.69328e-08 )
+material/0 = SubResource( 1 )

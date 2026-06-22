@@ -194,6 +194,7 @@ AttackDamage(1200)
 AttackDuration(36)
 AttackMomentum(-1600, 0, 1200, 1400)
 AttackFrameAdvantage(0, -8)
+AttackKnockdown(60)
 
 F9-13:
 	Hitbox(0, 29000, 15000, 28000)

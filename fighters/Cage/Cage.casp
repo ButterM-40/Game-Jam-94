@@ -125,6 +125,8 @@ AttackDuration(38)
 AttackMomentum(1400, 1200, 1000, 1800)
 AttackFrameAdvantage(0, -10)
 AttackMustBlock(Low)
+AttackKnockdown(60)
+
 
 F9-13:
 	Hitbox(7000, 25000, 0, 6000)
@@ -168,7 +170,7 @@ Anim(5Special3)
 AttackDamage(1100)
 AttackDuration(55)
 AttackMomentum(600, 1800, 600, 2000)
-AttackKnockdown(30)
+AttackKnockdown(40)
 F1:
 	AddMomentum(0,3000)
 	CreateEntity(JumpEarthBending)
@@ -245,19 +247,10 @@ F10:
 endif
 :JumpB:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :JumpF:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :JumpN:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :j5H:
 AttackRegister(AirHeavy)
 Anim(jC)
@@ -265,10 +258,8 @@ AttackDamage(1000)
 AttackDuration(34)
 AttackMomentum(1400, 0, 1200, 1200)
 AttackMustBlock(Overhead)
-AttackKnockdown()
-F7:
-	SFXPlay(Hit3)
-endif
+AttackKnockdown(40)
+
 F7-11:
 	Hitbox(-2000, 16000, 0, 30000)
 endif
@@ -281,9 +272,7 @@ AttackDamage(400)
 AttackDuration(12)
 AttackMomentum(900, 0, 900, 600)
 AttackMustBlock(Overhead)
-F5:
-	SFXPlay(Hit1)
-endif
+
 F5-8:
 	Hitbox(0, 15000, 20000, 27000)
 endif
@@ -364,10 +353,11 @@ def SUBENTITY_DestroyOnBlock bool() = 0
 def SUBENTITY_DestroyOnHit bool() = 0
 def SUBENTITY_DestroyWhenHit bool() = 0
 def SUBENTITY_Hitbox_Back int() = 10000
-def SUBENTITY_Hitbox_Bottom int() = 10000
-def SUBENTITY_Hitbox_Front int() = 40000
-def SUBENTITY_Hitbox_Top int() = 30000
+def SUBENTITY_Hitbox_Bottom int() = 0
+def SUBENTITY_Hitbox_Front int() = 35000
+def SUBENTITY_Hitbox_Top int() = 20000
 def SUBENTITY_Hitbox_Use bool() = 1
+def SUBENTITY_Hurtbox_Use bool() = 1
 def SUBENTITY_TimeToLive int() = 60
 :SpikeEarthBending---Variables:
 ## Put variables here

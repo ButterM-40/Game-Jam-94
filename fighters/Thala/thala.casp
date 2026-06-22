@@ -266,27 +266,21 @@ AttackDamage(1100)
 AttackDuration(60)
 AttackMomentum(600, 0, 600, 2000)
 AttackKnockdown(30)
-F1-25:
+F1-20:
 	AddMomentum(250,0)
-	endif
-F12-16:
+endif
+F12-40:
 	Hitbox(0, 21000, 12000, 16000)
+endif
+F20:
+	AddMomentum(500,0)
 endif
 :JumpB:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :JumpF:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :JumpN:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :j5H:
 AttackRegister(AirHeavy)
 Anim(jC)
