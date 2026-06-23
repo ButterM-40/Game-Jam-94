@@ -13,12 +13,13 @@ func _ready():
 	if _menuSound != null and _menuSound.stream != null:
 		_menuSound.stream = _menuSound.stream.duplicate()
 		_menuSound.stream.loop = false
-	var menuData = Castagne.baseConfigData.Get("MenuData-MainMenu").duplicate(true)
-	menuData["DefaultElements"] = {
-		Castagne.MENUS_ELEMENT_TYPES.ACTION: Castagne.Loader.Load("res://castagne/helpers/menus/elements/default/CMED-Action.tscn"),
-		Castagne.MENUS_ELEMENT_TYPES.LIST: Castagne.Loader.Load("res://castagne/helpers/menus/elements/default/CMED-List.tscn"),
-	}
-	InitMenu(menuData, null)
+	if _menuOptions == null:
+		var menuData = Castagne.baseConfigData.Get("MenuData-MainMenu").duplicate(true)
+		menuData["DefaultElements"] = {
+			Castagne.MENUS_ELEMENT_TYPES.ACTION: Castagne.Loader.Load("res://castagne/helpers/menus/elements/default/CMED-Action.tscn"),
+			Castagne.MENUS_ELEMENT_TYPES.LIST: Castagne.Loader.Load("res://castagne/helpers/menus/elements/default/CMED-List.tscn"),
+		}
+		InitMenu(menuData, null)
 	_PlayMenuMusic()
 	_PoseCharacter($Model, "5C", 0.0)
 	_PoseCharacter($Thala, "5C", 0.167)

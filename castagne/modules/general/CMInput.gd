@@ -41,7 +41,7 @@ func ModuleSetup():
 		{"Name":"MenuLeft", "Type":Castagne.PHYSICALINPUT_TYPES.BUTTON, "KeyboardInputs":[[[KEY_A, KEY_Q, KEY_LEFT]]], "ControllerInputs":[[[JOY_DPAD_LEFT]]]},
 		{"Name":"MenuRight", "Type":Castagne.PHYSICALINPUT_TYPES.BUTTON, "KeyboardInputs":[[[KEY_D, KEY_RIGHT]]], "ControllerInputs":[[[JOY_DPAD_RIGHT]]]},
 		
-		{"Name":"MenuConfirm", "Type":Castagne.PHYSICALINPUT_TYPES.BUTTON, "KeyboardInputs":[[[KEY_N, KEY_KP_0]]], "ControllerInputs":[[[JOY_XBOX_A]]]},
+		{"Name":"MenuConfirm", "Type":Castagne.PHYSICALINPUT_TYPES.BUTTON, "KeyboardInputs":[[[KEY_N, KEY_KP_0, KEY_ENTER, KEY_KP_ENTER, KEY_BACKSPACE]]], "ControllerInputs":[[[JOY_XBOX_A]]]},
 		{"Name":"MenuBack", "Type":Castagne.PHYSICALINPUT_TYPES.BUTTON, "KeyboardInputs":[[[KEY_K, KEY_KP_6]]], "ControllerInputs":[[[JOY_XBOX_B]]]},
 		{"Name":"MenuPrevious", "Type":Castagne.PHYSICALINPUT_TYPES.BUTTON, "KeyboardInputs":[[[KEY_Y, KEY_KP_1]]], "ControllerInputs":[[[JOY_L]]]},
 		{"Name":"MenuNext", "Type":Castagne.PHYSICALINPUT_TYPES.BUTTON, "KeyboardInputs":[[[KEY_U, KEY_KP_2]]], "ControllerInputs":[[[JOY_R]]]},

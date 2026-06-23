@@ -280,7 +280,12 @@ func TryAdvance():
 
 func Advance():
 	for n in get_tree().get_nodes_in_group("MenuMusic"):
+		n.stop()
 		n.queue_free()
+	if _navSound:
+		_navSound.stop()
+	if _selectSound:
+		_selectSound.stop()
 	if(_menuParams.has("CallbackAdvance")):
 		var selectData = []
 		for ps in playerSlots:
