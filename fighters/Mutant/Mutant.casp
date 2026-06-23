@@ -128,6 +128,7 @@ AttackDuration(60)
 AttackMomentum(2000, 1200, 10000, 1800)
 AttackFrameAdvantage(0, -10)
 AttackMustBlock(Low)
+AttackKnockdown(60)
 
 F9-13:
 	Hitbox(10000, 25000, 0, 20000)
@@ -177,7 +178,7 @@ Anim(Special3)
 AttackDamage(1100)
 AttackDuration(70)
 AttackMomentum(600, 1800, 600, 2000)
-AttackKnockdown(30)
+AttackKnockdown(60)
 
 
 F12-16:
@@ -255,19 +256,10 @@ F11-15:
 endif
 :JumpB:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :JumpF:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :JumpN:
 CallParent()
-F1:
-	SFXPlay(Swoosh)
-endif
 :j5H:
 AttackRegister(AirHeavy)
 Anim(jC)

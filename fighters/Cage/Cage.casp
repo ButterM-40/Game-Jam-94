@@ -217,9 +217,7 @@ AttackDamage(800)
 AttackDuration(18)
 AttackMomentum(1200, 0, 900, 1000)
 AttackFrameAdvantage(0, -4)
-F7:
-	SFXPlay(Hit2)
-endif
+
 F6-9:
 	Hitbox(10000, 20000, 17000, 23000)
 endif

@@ -52,6 +52,7 @@ margin_right = -4.0
 margin_bottom = 4.0
 
 [node name="Meter" type="Control" parent="."]
+visible = false
 anchor_left = 0.05
 anchor_top = 0.875
 anchor_right = 0.5
@@ -59,6 +60,7 @@ anchor_bottom = 0.95
 margin_right = -8.0
 
 [node name="MeterSub" type="Control" parent="."]
+visible = false
 anchor_left = 0.05
 anchor_top = 0.825
 anchor_right = 0.5
