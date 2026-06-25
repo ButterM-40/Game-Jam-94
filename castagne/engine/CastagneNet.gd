@@ -101,22 +101,22 @@ func _ready():
 	#SyncManager.connect("sync_error", self, "_on_SyncManager_sync_error")
 
 func _on_network_peer_connected(peer_id: int):
-	# Use .set_network_master(peer_id) on the input provider i think
-	# Don't forget SyncManager.start() once everything good
 	Log("Network Peer Connected : " + str(peer_id))
-	SyncManager.add_peer(peer_id)
+	if SyncManager != 0:
+		SyncManager.add_peer(peer_id)
 	nbPeers += 1
-	#if get_tree().is_network_server():
 
 func _on_network_peer_disconnected(peer_id: int):
 	Log("Network Peer Disconnected : " + str(peer_id))
-	SyncManager.remove_peer(peer_id)
-	SyncManager.stop_logging()
+	if SyncManager != 0:
+		SyncManager.remove_peer(peer_id)
+		SyncManager.stop_logging()
 
 func _on_server_disconnected() -> void:
 	Log("Server Disconnected.")
 	_on_network_peer_disconnected(1)
-	SyncManager.stop_logging()
+	if SyncManager != 0:
+		SyncManager.stop_logging()
 
 func _on_SyncManager_sync_started() -> void:
 	Log("SyncManager Sync Started")

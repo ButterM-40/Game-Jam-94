@@ -69,6 +69,11 @@ func MCB_MMVS(_args, selectedOption):
 		StartDeviceSelect(funcref(self, "LocalBattleStart"))
 	else:
 		StartDeviceSelect(funcref(self, "VsCPUStart"))
+func MCB_MMOnline(_args):
+	queue_free()
+	var mp_scene = load("res://castagne/helpers/menus/Multiplayer/multiplayer_menu.tscn")
+	get_tree().get_root().add_child(mp_scene.instance())
+
 func MCB_MMOptions(_args):
 	queue_free()
 	get_tree().get_root().add_child(Castagne.Menus.InstanceMenu("Options", null, _configData))

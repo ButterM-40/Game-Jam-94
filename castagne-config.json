@@ -27,6 +27,13 @@
 				"Type": 1
 			},
 			{
+				"Action": "MMOnline",
+				"ActionParams": null,
+				"DisplayName": "Online",
+				"ScenePath": null,
+				"Type": 0
+			},
+			{
 				"Action": "MMTraining",
 				"ActionParams": null,
 				"DisplayName": "Training",
