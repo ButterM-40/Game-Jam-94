@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mutant Arena2.icon.png-2e00306eab30670b62e883d9e943b16b.stex"
+path="res://.import/index.png-60ca65ecb4dda44f278dbf5ef9e8f908.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mutant Arena2.icon.png"
-dest_files=[ "res://.import/Mutant Arena2.icon.png-2e00306eab30670b62e883d9e943b16b.stex" ]
+source_file="res://Here/index.png"
+dest_files=[ "res://.import/index.png-60ca65ecb4dda44f278dbf5ef9e8f908.stex" ]
 
 [params]
 

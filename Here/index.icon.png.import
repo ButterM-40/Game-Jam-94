@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mutant Arena2.apple-touch-icon.png-04b43b2c1c518208e988ec4d7985e7b1.stex"
+path="res://.import/index.icon.png-37319c86797515c5af051cf94af9dc8d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mutant Arena2.apple-touch-icon.png"
-dest_files=[ "res://.import/Mutant Arena2.apple-touch-icon.png-04b43b2c1c518208e988ec4d7985e7b1.stex" ]
+source_file="res://Here/index.icon.png"
+dest_files=[ "res://.import/index.icon.png-37319c86797515c5af051cf94af9dc8d.stex" ]
 
 [params]
 
